@@ -1,30 +1,43 @@
-#### Template below for Service Portal:
+## Creating and modifying firewall rules
 
-Note: You can also review past jkazmier@ tickets with "Hardware Firewall Change - hostname.princeton.edu" and copy and paste and adjust accordingly. Otherwise
+You must complete two tasks for each firewall change (edit or addition):
+1. Create or update the Service Portal ticket
+2. Create or update the firewall rule(s) in PanOS
+
+Use our standard firewall rule format in both the Service Portal and in PanOS. The format for naming a firewall rule is:
+`<DataCenter>_<ServerName>_Rule_#`
+
+For example: `Forrestal_lib-serv79_Rule_1`
+
+### Creating or updating the Service Portal ticket:
+
+Service Portal tickets document firewall changes over time and provide an audit history. You must create or update a Service Portal ticket for each firewall change you make. To create a ticket in the Princeton Service Portal, you can review past jkazmier@ tickets with "Hardware Firewall Change - hostname.princeton.edu" and copy and paste and adjust accordingly.
+
+Example Ticket Template:
+(Note: this example shows multiple change types. Most real tickets will have only one change type.)
 
 ```
-Example Ticket Template:
-Subject: Hardware Firewall Change – Lib-ServerName
-Description: Content of email from requestor. Or simply the reason for the change.
+Subject: Hardware Firewall Change – <Lib-ServerName>
+Description: <Content of email from requestor, or the reason for the change.>
 
 Resolution Format: 
 
 Rules:
 
-Rule "Forrestal_Lib-ServerName_Rule#" created:
+Rule "<DataCenter>_<Lib-ServerName>_Rule#" created:
 Source: Any
-Destination: Lib-ServerName
-Application: ssl, web-browsing
+Destination: <Lib-ServerName>
+Application: <application> (for example, ssl, web-browsing)
 Ports: HTTP (TCP 80), HTTPS (TCP 443)
 Action: Allow
 
-Rule "Forrestal_Lib-ServerName_Rule#" edited:
+Rule "<DataCenter>_<Lib-ServerName>_Rule#" edited:
 Removed Source: Princeton Wired
 Added Source: Any
-Removed Application: ssl, web-browsing
+Removed Application: <application> (for example, ssl, web-browsing)
 Added Ports: HTTP (TCP 80), HTTPS (TCP 443)
 
-Rule "Forrestal_Lib-ServerName_Rule#" deleted:
+Rule "<DataCenter>_<Lib-ServerName>_Rule#" deleted:
 Reason for deletion: Rule was no longer needed or server has been decommissioned or redundant to rule xyz
 Was configured as:
 Location: Forrestal
@@ -36,9 +49,6 @@ Action: Allow
 
 Rule "Rule ID 250" renamed: "Shared_DSS_Rule6"
 Rule "Rule ID 250" moved to device group: “Shared”
-
-
-
 
 Addresses:
 
@@ -160,39 +170,36 @@ Shared: Yes
 Description: URL to page describing the block list.
 Source: URL to text file containing list of IPs
 Frequency: Weekly on Monday at 00:00
-
-Committing the changes:
-After making the appropriate changes to the FW, they must be committed to go into effect. 
-1.	In the upper right click the “Commit” link
-2.	In the Commit window, select the “Panorama” radio button
-3.	Click “Commit” to save changes to Panorama
-4.	After it is complete, click the “Commit” link once again
-5.	This time select the “Device Group” radio button
-6.	Select “Forrestal” and “New-South” 
-7.	Click “Commit” to save changes to each si
 ```
 
+### Creating the firewall rule in PanOS:
+Creating or modifying firewall rules is a three-step process: First, create or modify the appropriate rule or rules. Second, commit the changes. Third, push the committed changes out to all devices.
 
-
-## Firewall Rule Modification Steps
-
-* Create IP address of host
-* Objects Tab 
-    * Add (plus sign) # bottom left
+1. Create or modify the rule(s):
+* If you are adding a new host, create a new firewall object with the IP address. Skip this step if you are modifying an existing rule for an existing host.
+  * On the Objects Tab 
+    * Click `Add` (plus sign) at bottom left
 	  * get name and add to shared
-	  * add IP address 
-* Open policies tab
+	  * add IP address
+* If you are adding new rules (for a new host or for an existing host), create a new rule record. Skip this step if you are modifying an existing rule for an existing host.
+  * On the Policies tab
     * Shared Policies (rules are sequential)
-	* Highlight Rule and Clone
-	* give the name to new policy
-	* In order of importance (Source, Destination, Application Service)
-	* Change to new destination if cloned
-	* add application rules (applipedia for rules definition)
-	
-Upon Completion DO
+	  * Highlight Rule and Clone
+	  * give the name to new policy
+    * save
+* Edit the cloned or pre-existing rule record.
+  * Open the rule record and edit or check three tabs: Source, Destination, Application Service
+  * If the rule record is a clone, change the Destination
+  * add application rules (see [applipedia](https://applipedia.paloaltonetworks.com/) for rule definitions)
 
-* Commit to Panorama
+2. Commit the changes to Panorama:
+  1.	In the upper right click the “Commit” link
+  2.	In the Commit window, select the “Panorama” radio button
+  3.	Click “Commit” to save changes to Panorama
+  4.	After it is complete, click the “Commit” link once again
+  5.	This time select the “Device Group” radio button
+  6.	Select “Forrestal” and “New-South” 
+  7.	Click “Commit” to save changes to each si
+
+3. Push the changes to all devices:
 * Push to Devices (make sure it has pushed before)
-
-	
-	
