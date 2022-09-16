@@ -94,4 +94,4 @@ You can now view your rails application by creating a *tunnel* connection from a
 ```bash
 ssh -L 3000:localhost:3000 pulsys@sandbox-<yournetid>
 ```
-Ask any of the PUL developers or read more about [Rails](https://edgeguides.rubyonrails.org/getting_started.html) here. 
+Ask any of the PUL developers or read more about [Rails Bridge](rails_bridge.md) here. 
