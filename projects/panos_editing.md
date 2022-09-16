@@ -4,10 +4,10 @@ You must complete two tasks for each firewall change (edit or addition):
 1. Create or update the Service Portal ticket
 2. Create or update the firewall rule(s) in PanOS
 
-Use our standard firewall rule format in both the Service Portal and in PanOS. The format for naming a firewall rule is:
-`<DataCenter>_<ServerName>_Rule_#`
+Use our standard firewall rule format in both the Service Portal and in PanOS. The rule names should incorporate the Object names from PanOS. The format for naming a firewall rule is:
+`<DataCenter>_<ObjectName>_Rule#`
 
-For example: `Forrestal_lib-serv79_Rule_1`
+For example: `Shared_PulfaLight-Prod1_Rule1` or `Forrestal_lib-serv79_Rule1` - 
 
 ### Creating or updating the Service Portal ticket:
 
@@ -177,20 +177,24 @@ Creating or modifying firewall rules is a three-step process: First, create or m
 
 1. Create or modify the rule(s):
 * If you are adding a new host, create a new firewall object with the IP address. Skip this step if you are modifying an existing rule for an existing host.
-  * On the Objects Tab 
+  * **On the Objects Tab** 
     * Click `Add` (plus sign) at bottom left
-	  * get name and add to shared
-	  * add IP address
+	  * Enter vm name, click `Shared`
+    * Add a description
+	  * Keep the default Type, and add the IP address in the blank box to the right
+    * Click OK to save
 * If you are adding new rules (for a new host or for an existing host), create a new rule record. Skip this step if you are modifying an existing rule for an existing host.
-  * On the Policies tab
-    * Shared Policies (rules are sequential)
-	  * Highlight Rule and Clone
-	  * give the name to new policy
-    * save
+  * **On the Policies tab**
+    * The Device Group should always be set to Shared for VMs
+    * Highlight the rule you want to clone, then click `Clone` in the bottom toolbar
+    * In the popup, select the rule, click `OK` to clone - your cloned rule will show up as `Original-Rule#-1`
+    * Click on your new rule name to open the edit box
+    * Edit the name of your new rule on the General tab
 * Edit the cloned or pre-existing rule record.
-  * Open the rule record and edit or check three tabs: Source, Destination, Application Service
+  * Open the rule record and edit or check three tabs: Source, Destination, Application Service to match your needs
   * If the rule record is a clone, change the Destination
   * add application rules (see [applipedia](https://applipedia.paloaltonetworks.com/) for rule definitions)
+  * Click OK to save
 
 2. Commit the changes to Panorama:
   1.	In the upper right click the “Commit” link
