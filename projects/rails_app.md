@@ -1,97 +1,109 @@
-## Install Refinery CMS with Nginx on Ubuntu
+## Create A Rails App
 
-### Installation Prerequisites
+From here on, this guide assumes you have Rails 7.0.x. To check your Rails version, type this in the terminal:
 
-In order to set the Rails App you will need
-
-  * A working version of Ruby
-  * [PostgreSQL](postgresql.md) database configured
-
-#### Ruby/Rubygems
-
-This is not a production server you are working on so we recommend install Ruby via [rbenv](https://github.com/rbenv/rbenv) which allows one to install more than one version of Ruby or RubyGems. 
-
-This is done using the following commands:
-
-```bash
-sudo apt-get install -y libssl-dev libsqlite3-dev nodejs
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-cd ~/.rbenv && src/configure && make -C src
+```zsh
+rails -v
 ```
 
-If you are using the *bash* shell add this to your config
+Approximate expected result:
 
-```bash
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+```
+Rails 7.0.4
 ```
 
-Otherwise if you are using *zsh* add this to your config
+The resulting text may differ. This is the version in fall of 2022
 
-```bash
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+### Step 1: Change to your railsbridge directory
+
+`cd` stands for change directory.
+
+```zsh
+cd ~/Documents/railsbridge
 ```
 
-Setup your rbenv in your shell
+### Step 2: Create a new Rails app
 
-```bash
-~/.rbenv/bin/rbenv init
+Type this in the terminal:
+
+```zsh
+rails new test_app
 ```
 
-Install ruby-build with the following commands:
+The command's output is voluminous, and will take some time to complete, with a long pause in the middle, after all the 'create...' statements ending in 'bundle install'. When it fully completes, it will return you to your home prompt. Look for the 'Bundle complete!' message just above.
 
-```bash
-mkdir -p "$(rbenv root)"/plugins
-git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-```
-Check for the versions of ruby available to install 
+Type this in the terminal:
 
-```bash
-rbenv install -l
+```zsh
+cd test_app
 ```
 
-We will install version 3.1.2 (the newest version in Fall 2022)
+Type this in the terminal:
 
-```bash
-rbenv install 3.1.2
-```
-
-
-### Install Rails App
-
-Set the global ruby version by running the following command:
-
-```bash
-rbenv global 3.1.2
-```
-Build a new Rails app
-
-```bash
-gem install rails
-```
-
-Create a directory for your application 
-
-```bash
-sudo mkdir /opt/apps
-sudo chown -R $USER /opt/apps
-```
-
-Create you blog application
-
-```bash
-cd /opt/apps
-rails new blog
-```
-
-Switch into the newly created blog directory
-
-```bash
-cd blog
+```zsh
 rails server
 ```
-You can now view your rails application by creating a *tunnel* connection from a different termimal window, and running the following commands:
 
-```bash
-ssh -L 3000:localhost:3000 pulsys@sandbox-<yournetid>
+The first command should produce no output. If rails server starts up with no errors, you're golden! It'll look something like this:
+
+Approximate expected result:
+
 ```
-Ask any of the PUL developers or read more about [Rails Bridge](rails_bridge.md) here. 
+=> Booting Puma
+=> Rails 7.0.4 application starting in development
+=> Run `bin/rails server --help` for more startup options
+Puma starting in single mode...
+* Puma version: 5.6.5 (ruby 3.1.2-p20) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 69776
+* Listening on http://127.0.0.1:3000
+* Listening on http://[::1]:3000
+Use Ctrl-C to stop
+```
+
+If it does, congratulations! You've successfully installed Ruby AND Rails and started your server.
+
+In your browser, go to `http://127.0.0.1:3000`
+
+![Alt](images/helloworld.png "rails launch page")
+
+Back in the Terminal window where you ran rails server, type Control-C (don't type this into the console, but hold the Control and C keys at the same time) to kill(stop) the server.
+
+### Step 3: Generate a database model
+
+From the `test_app` directory. Type this in the terminal:
+
+```zsh
+rails generate scaffold drink name:string temperature:integer
+```
+
+Type this in the terminal:
+
+```zsh
+rails db:migrate
+```
+
+Type this in the terminal:
+
+```zsh
+rails server
+```
+
+Note: the above are three separate commands. Type each line into the terminal separately, not as one single command.
+
+Wait until your console shows that the Puma server has started (just like before). Then, in the browser, visit http://localhost:3000/drinks
+
+  1.  Click on "New drink"
+  1.  Enter Cappuccino for the name
+  1. Enter 135 for the temperature.
+  1. Click on "Create Drink".
+
+(The window where you ran rails server will display debugging information as you do this.)
+
+You should see:
+
+![Alt](images/coffee.png "cappucino page")
+
+In your terminal, Hold Control and hit C to stop the rails server.

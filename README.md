@@ -10,4 +10,4 @@ We will have manual steps for installing projects similar to the [Ansible](https
   * [Drupal](projects/drupal.md)
   * [LEMP](projects/lemp.md)
   * [PostgreSQL](projects/postgresql.md)
-  * [Rails CMS](rails_app.md)
+  * [Rails](rails_bridge.md)
