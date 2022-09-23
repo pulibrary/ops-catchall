@@ -45,3 +45,5 @@ Approximate expected result:
 ```
 Your email address
 ```
+
+Move on to [Configure SSH keys](sshkeys.md) if you haven't already
