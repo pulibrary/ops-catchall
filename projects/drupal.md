@@ -120,6 +120,11 @@ Drupal expects the following php extensions:
 sudo apt -y install php-dompdf php-xml php8.1-mbstring
 ```
 
+Drupal upgrade works best with Composer and php-curl. Install those with the following commands:
+
+```bash
+sudo apt -y install composer php-curl
+```
 
 Download the latest version of the Drupal from Drupal download page.
 
