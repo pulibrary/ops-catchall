@@ -107,3 +107,5 @@ You should see:
 ![Alt](images/coffee.png "cappucino page")
 
 In your terminal, Hold Control and hit C to stop the rails server.
+
+We will now use [Capistrano](capistrano.md) to deploy our application to our sandbox
