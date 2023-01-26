@@ -9,6 +9,6 @@ We will have manual steps for installing projects similar to the [Ansible](https
 
   * [LEMP](projects/lemp.md)
   * [Drupal](projects/drupal.md)
-  * [PostgreSQL](projects/postgresql.md
+  * [PostgreSQL](projects/postgresql.md)
   * [Apache Solr](projects/apache_solr.md)
   * [PanOS](projects/panos_editing.md)
