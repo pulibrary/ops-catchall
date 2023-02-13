@@ -67,4 +67,21 @@ from `lib-confluence.princeton.edu` to say `lib-confluence-staging.princeton.edu
 
 Start the confluence application with `sudo systemctl start confluence`
 
+#### Troubleshooting
+Note for when we do an upgrade:
+
+After upgrade, update the second 1024 in setenv.sh file to 4096 (line76):
+
+```zsh 
+cd /opt/atlassian/confluence/bin
+opt/atlassian/confluence/bin$ sudo vi setenv.sh
+```
+
+# Set the Java heap size
+CATALINA_OPTS="-Xms1024m -Xmx4096m ${CATALINA_OPTS}"
+/opt/atlassian/confluence/bin$ 
+
+`sudo systemctl restart confluence`
+
+
 If things fail. Take a look at the likely [permissions problem here](https://community.atlassian.com/t5/Confluence-questions/Confluence-not-start-up/qaq-p/760312).
