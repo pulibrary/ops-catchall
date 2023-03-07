@@ -1,6 +1,6 @@
-### Certbot Ubuntu and Apache2
+### Certbot Ubuntu with webservers
 
-This guide provides instructions on the Certbot utility with the Apache web server on Ubuntu 22.04 LTS. Certbot dramatically reduces the effort (and cost) of securing your websites with HTTPS. It works directly with the free ACME protocol to request (or renew) a certificate, prove ownership of the domain, and install the InCommon provided certificate on Apache.
+This guide provides instructions on the Certbot utility with your web server on Ubuntu 22.04 LTS. Certbot dramatically reduces the effort (and cost) of securing your websites with HTTPS. It works directly with the free ACME protocol to request (or renew) a certificate, prove ownership of the domain, and install the InCommon provided certificate on your web server. Consider using the [playbook](https://github.com/pulibrary/princeton_ansible/blob/main/playbooks/incommon_certbot.yml) given how many steps are involved :wink:
 
 #### Before you begin
 
@@ -8,15 +8,15 @@ Before continuing with this guide, you need a website accessible over HTTP using
 
 A server running on Ubuntu 22.04 LTS with credentials to a standard user account (belonging to the sudo group) and the ability to access the server through SSH.
 
-A registered domain name with DNS records pointing to the IPv4 (and optionally IPv6) address of your server. A domain can be obtained through any OIT. 
+A registered domain name with DNS records pointing to the IPv4 (and optionally IPv6) address of your server. A domain name can be obtained through Princeton's OIT. 
 
-The Apache web server software installed on your server and configured for your domain.
+The web server software installed on your server and configured for your domain.
 
 #### Configure your firewall
 
 Any firewall configured on your server needs to allow connections over HTTPS (in addition to HTTP and any other services/ports you require). This section covers enabling and configuring UFW (UncomplicatedFirewall). UFW is the default firewall management tool on Ubuntu. It operates as a easy to use front-end for iptables.
 
-Depending on your network you may need to work with OIT
+Depending on your network you may need to work with Princeton's OIT
 
 If UFW is not installed, install it now using apt.
 
@@ -91,7 +91,7 @@ sudo ln -sf /snap/bin/certbot /usr/bin/certbot
 
 #### Request a TLS Certificate with Certbot
 
-You will need a working email address. Run the following commands with the eab-kid and eab-hmac-key provided by working with OIT. In the example below we use
+You will need a working email address. Run the following commands with the eab-kid and eab-hmac-key provided by working with Princeton's OIT. In the example below we use
 
 eab-kid value `XXXxxNNxNNWxXxxXNXxXx` and eab-hmac-key value of `_XNXXxxNXNNXxXNXXNXXXxxxXNNxXxxXXXxxXXXNX_XXxXxNxNNNX_XXxxNXXxXNxxXXXXxXxxXXXxXxNzXXxX`
 
@@ -115,7 +115,7 @@ lrwxrwxrwx 1 root root   43 Mar  7 18:30 privkey.pem -> ../../archive/vanity-nam
 -rw-r--r-- 1 root root  692 Mar  7 18:30 README
 ```
 
-Configure your Apache Webserver to use the files above.
+Configure your Webserver to use the files above.
 
 #### Renewing TLS Certificates
 
@@ -130,7 +130,3 @@ sudo certbot renew --dry-run
 ```
 
 Certbot inspects the certificates and confirms they are not due to be renewed, but simulates the process anyway. It displays details regarding whether the renewal would have been successful.
-
-
-
-
