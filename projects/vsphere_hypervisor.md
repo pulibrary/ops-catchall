@@ -24,6 +24,31 @@ You will need to make sure you are on the princeton network and connected using 
 * When Selecting the Network select `Virtual Machine Network` except in cases where a new VM will be in the private network and press `NEXT` 
 * Press `Finish`
 
+#### Initial VM Configuration
+
+The following steps are needed to complete your Virtual Machine setup.
+
+ * Get the MAC address of the VM by right click (with the virtual machine highlighted) to edit settings. (You may need to ensure `CD/DVD drive 1` is set to *Client Device*) select `Network adapter 1` and expand to get the MAC address
+ * Register the [MAC address](http://networkregistration.princeton.edu)
+ * Make a PR on the [infrastructure repo](https://github.com/PrincetonUniversityLibrary/infra) to register the new Virtual Machine
+ * Power On the Virtual Machine with a right click and select `Power On`
+ * Is your new Virtual Machine name will be `yourdns1.princeton.edu` You can now connect to the Virtual Machine with `ssh pulsys@yourdns1.princeton.edu` 
+ * Edit the host name at the following locations
+   * substitute the name `lib-vm` on `/etc/hosts` and `/etc/hostname` with `yourdns1`
+   * the following perl command will do that:
+
+    ```zsh
+     sudo perl -pi -e 's/lib-vm/yourdns1/g' /etc/hostname
+     sudo perl -pi -e 's/lib-vm/yourdns1/g' /etc/hosts
+     ```
+
+ * The next step will take a while. Go grab :coffee: after your run the `unminimize` command below:
+
+   ```zsh
+   sudo unminimize -y
+   ```
+ * When this is completed. Restart your Virtual Machine with `sudo /sbin/reboot`
+
 #### Delete a Virtual Machine
 
 Follow the steps above to Connect to VSphere
