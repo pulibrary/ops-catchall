@@ -13,14 +13,14 @@ You will need to make sure you are on the princeton network and connected using 
 
 * From a separate tab or browser Download and save the OVF template files from [Google Drive](https://drive.google.com/drive/folders/0B0s-Lc6vvmqqTF9yaklHWW1RdmM?resourcekey=0-tdIXAZtmu1klMhHUMSE00g)
 * On Staging Select *Library-Dev* and on Prod Select either *Library* or *Diglib*
-* On Staging Select the the *VMCluster* **Actions** and on Prod Select either *Library* or *Diglib* **Actions**
+* On Staging Select the the *VMCluster* **Actions** and on Prod Select either *Library* or *Diglib* **Actions** with three ellipses at the top right hand panel
 * You will select the `Deploy OVF Template...` which will launch a Wizard.
 * Select the `Local file` radio button
 * Select `Upload Files` option and navigate to where you have the 3 Files you saved above and press `NEXT`
 * Give the `Virtual machine name:` a name (ideal that matches DNS)
 * From `Select a location for the virtual machine` place the virtual machine in `Discovered virtual machine` for staging or `drdsetvms` on Production and press `NEXT`
 * From `Select the distination compute resource for this operation` expand the `VMCluster` and select one of the hosts and press `NEXT`
-* Select on of the **none host** storage locations. The preference is to always `thin provision` the `Select virtual disk format` from the drop down and press `NEXT`
+* Select one of the **none host** storage locations (they will usually have SAN on them and not a host name). The preference is to always `thin provision` the `Select virtual disk format` from the drop down and press `NEXT`
 * When Selecting the Network select `Virtual Machine Network` except in cases where a new VM will be in the private network and press `NEXT` 
 * Press `Finish`
 
@@ -29,7 +29,7 @@ You will need to make sure you are on the princeton network and connected using 
 Follow the steps above to Connect to VSphere
 
 * On Staging Select *Library-Dev* and on Prod Select either *Library* or *Diglib*
-* Using the magnifying glass search for the Virtual Machine you wish to delete.
+* Using the magnifying glass search next to the label vSphere Client for the Virtual Machine you wish to delete.
 * The virtual machine will be selected on your results; right click and select `Power Off` and wait for the machine to power off.
 * This step could lead to disaster so be certain you want to do this. Right click on the selected server again and select `Delete from Disk` 
 
@@ -38,7 +38,7 @@ Follow the steps above to Connect to VSphere
 Follow the steps above to Connect to VSphere
 
 * On Staging Select *Library-Dev* and on Prod Select either *Library* or *Diglib*
-* Using the magnifying glass search for the Virtual Machine you wish to delete.
+* Using the magnifying glass search next to the label vSphere Client for the Virtual Machine you wish to delete.
 * The virtual machine will be selected on your results; right click and select `Power Off` and wait for the machine to power off.
 * Right click on the Virtual Machine again and Select `Power On` and wait for the machine to come back on. You may want to `Launch the Web Console` to see what is actually happening on the virtual machine.
 
