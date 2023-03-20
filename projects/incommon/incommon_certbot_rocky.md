@@ -108,7 +108,7 @@ Configure a symbolic link to the Certbot directory using the ln command.
 sudo ln -sf /snap/bin/certbot /usr/bin/certbot
 ```
 
-#### Request a TLS Certificate with Certbot
+#### Request a single domain TLS Certificate with Certbot
 
 You will need a working email address. Run the following commands with the eab-kid and eab-hmac-key provided by working with Princeton's OIT. In the example below we use
 
@@ -133,6 +133,13 @@ lrwxrwxrwx 1 root root   45 Mar  7 18:30 fullchain.pem -> ../../archive/vanity-n
 lrwxrwxrwx 1 root root   43 Mar  7 18:30 privkey.pem -> ../../archive/vanity-name/privkey1.pem
 -rw-r--r-- 1 root root  692 Mar  7 18:30 README
 ```
+
+#### Request a multiple domains TLS Certificate with Certbot
+
+```zsh
+sudo certbot certonly --standalone --non-interactive --agree-tos --email netid@princeton.edu --server https://acme.sectigo.com/v2/InCommonRSAOV --eab-kid XXXxxNNxNNWxXxxXNXxXx --eab-hmac-key _XNXXxxNXNNXxXNXXNXXXxxxXNNxXxxXXXxxXXXNX_XXxXxNxNNNX_XXxxNXXxXNxxXXXXxXxxXXXxXxNzXXxX  --domain vanity-name.princeton.edu --domain other-name.princeton.edu --cert-name multiple-vanity-names
+```
+
 
 Configure your Webserver to use the files above.
 

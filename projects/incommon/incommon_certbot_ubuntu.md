@@ -115,6 +115,12 @@ lrwxrwxrwx 1 root root   43 Mar  7 18:30 privkey.pem -> ../../archive/vanity-nam
 -rw-r--r-- 1 root root  692 Mar  7 18:30 README
 ```
 
+#### Request a multiple domains TLS Certificate with Certbot
+
+```zsh
+sudo certbot certonly --standalone --non-interactive --agree-tos --email netid@princeton.edu --server https://acme.sectigo.com/v2/InCommonRSAOV --eab-kid XXXxxNNxNNWxXxxXNXxXx --eab-hmac-key _XNXXxxNXNNXxXNXXNXXXxxxXNNxXxxXXXxxXXXNX_XXxXxNxNNNX_XXxxNXXxXNxxXXXXxXxxXXXxXxNzXXxX  --domain vanity-name.princeton.edu --domain other-name.princeton.edu --cert-name multiple-vanity-names
+```
+
 Configure your Webserver to use the files above.
 
 #### Renewing TLS Certificates
