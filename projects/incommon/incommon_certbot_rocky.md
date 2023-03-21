@@ -1,4 +1,4 @@
-### Certbot Ubuntu with webservers
+### Certbot Rocky [RHEL] with webservers
 
 This guide provides instructions on the Certbot utility with your web server on Ubuntu 22.04 LTS. Certbot dramatically reduces the effort (and cost) of securing your websites with HTTPS. It works directly with the free ACME protocol to request (or renew) a certificate, prove ownership of the domain, and install the InCommon provided certificate on your web server. Consider using the [playbook](https://github.com/pulibrary/princeton_ansible/blob/main/playbooks/incommon_certbot.yml) given how many steps are involved :wink:
 
