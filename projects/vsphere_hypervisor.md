@@ -21,7 +21,7 @@ You will need to make sure you are on the princeton network and connected using 
 * From `Select a location for the virtual machine` place the virtual machine in `Discovered virtual machine` for staging or `drdsetvms` on Production and press `NEXT`
 * From `Select the distination compute resource for this operation` expand the `VMCluster` and select one of the hosts and press `NEXT`
 * Select one of the **none host** storage locations (they will usually have SAN on them and not a host name). The preference is to always `thin provision` the `Select virtual disk format` from the drop down and press `NEXT`
-* When Selecting the Network select `Virtual Machine Network` except in cases where a new VM will be in the private network and press `NEXT` 
+* When Selecting the Network select `Virtual Machine Network` except in cases where a new VM will be in the private network and press `NEXT`
 * Press `Finish`
 
 #### Initial VM Configuration
@@ -32,7 +32,7 @@ The following steps are needed to complete your Virtual Machine setup.
  * Register the [MAC address](http://networkregistration.princeton.edu)
  * If this is a new machine make a PR on the [infrastructure repo](https://github.com/PrincetonUniversityLibrary/infra) to register the new Virtual Machine
  * Power On the Virtual Machine with a right click and select `Power On`
- * If your new Virtual Machine name will be `yourdns1.princeton.edu` You can now connect to the Virtual Machine with `ssh pulsys@yourdns1.princeton.edu` 
+ * If your new Virtual Machine name will be `yourdns1.princeton.edu` You can now connect to the Virtual Machine with `ssh pulsys@yourdns1.princeton.edu`
  * Edit the host name at the following locations
    * substitute the name `lib-vm` on `/etc/hosts` and `/etc/hostname` with `yourdns1`
    * the following perl command will do that:
@@ -56,7 +56,7 @@ Follow the steps above to Connect to VSphere
 * On Staging Select *Library-Dev* and on Prod Select either *Library* or *Diglib*
 * Using the magnifying glass search next to the label vSphere Client for the Virtual Machine you wish to delete.
 * The virtual machine will be selected on your results; right click and select `Power Off` and wait for the machine to power off.
-* This step could lead to disaster so be certain you want to do this. Right click on the selected server again and select `Delete from Disk` 
+* This step could lead to disaster so be certain you want to do this. Right click on the selected server again and select `Delete from Disk`
 
 #### Kick (Reboot) a Virtual Machine
 
@@ -67,4 +67,11 @@ Follow the steps above to Connect to VSphere
 * The virtual machine will be selected on your results; right click and select `Power Off` and wait for the machine to power off.
 * Right click on the Virtual Machine again and Select `Power On` and wait for the machine to come back on. You may want to `Launch the Web Console` to see what is actually happening on the virtual machine.
 
+#### Migrating Virtual Machines to Production or Staging
 
+ * Find and power down the virtual machine you plan to migrate
+ * Unregister the virtual machine from the inventory by right clicking on it to unregister
+ * The `lib-vm-diglib4` connects to *VMSANVOLDEV00{1/2}* and can be used to migrate between the production and staging environments
+ * Right click and migrate the virtual machine to either of the storage above
+ * Locate your VM files be browsing the storage above (we will be searching for yourvm.vmx file)
+ * Register the new VM in the environment you want
