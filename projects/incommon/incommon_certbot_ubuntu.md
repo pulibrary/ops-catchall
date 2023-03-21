@@ -132,7 +132,7 @@ Upon installation, Certbot is configured to renew any certificates automatically
 To confirm Certbot is configured to renew its certificates automatically, use certbot renew along with the dry-run flag.
 
 ```zsh
-sudo certbot renew --dry-run
+sudo certbot --standalone --non-interactive --agree-tos --email netid@princeton.edu --server https://acme.sectigo.com/v2/InCommonRSAOV --eab-kid XXXxxNNxNNWxXxxXNXxXx --eab-hmac-key _XNXXxxNXNNXxXNXXNXXXxxxXNNxXxxXXXxxXXXNX_XXxXxNxNNNX_XXxxNXXxXNxxXXXXxXxxXXXxXxNzXXxX renew --dry-run
 ```
 
 Certbot inspects the certificates and confirms they are not due to be renewed, but simulates the process anyway. It displays details regarding whether the renewal would have been successful.
