@@ -12,14 +12,14 @@ sudo su - postgres
 pg_dump lib_confluence_db > output_file.sql
 exit
 sudo mv /var/lib/postgresql/output_file.sql ~/YYYY_MM_DD_migration
-sudo chown pulsys:pulsys ~/YYYY_MM_DD/output_file.sql
+sudo chown pulsys:pulsys ~/YYYY_MM_DD_migration/output_file.sql
 exit
 ```
 
 * transfer the database to the staging server
 
 ```zsh
-scp pulsys@lib-confluence-prod1:~/YYYY_MM_DD/output_file.sql .
+scp pulsys@lib-confluence-prod1:~/YYYY_MM_DD_migration/output_file.sql .
 scp output_file.sql pulsys@lib-confluence-staging1:~
 ```
 
