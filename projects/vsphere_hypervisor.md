@@ -33,12 +33,17 @@ The following steps are needed to complete your Virtual Machine setup.
  * If this is a new machine make a PR on the [infrastructure repo](https://github.com/PrincetonUniversityLibrary/infra) to register the new Virtual Machine
  * Power On the Virtual Machine with a right click and select `Power On`
  * If your new Virtual Machine name will be `yourdns1.princeton.edu` You can now connect to the Virtual Machine with `ssh pulsys@yourdns1.princeton.edu`
+ * You will `possibly` get a **MAN-IN-THE-MIDDLE** attack warning
  * Edit the host name at the following locations
    * substitute the name `lib-vm` on `/etc/hosts` and `/etc/hostname` with `yourdns1`
    * the following perl command will do that:
 
     ```zsh
      sudo perl -pi -e 's/lib-vm/yourdns1/g' /etc/hostname
+     ```
+     Then run the following:
+
+     ```zsh
      sudo perl -pi -e 's/lib-vm/yourdns1/g' /etc/hosts
      ```
 
@@ -56,7 +61,7 @@ Follow the steps above to Connect to VSphere
 * On Staging Select *Library-Dev* and on Prod Select either *Library* or *Diglib*
 * Using the magnifying glass search next to the label vSphere Client for the Virtual Machine you wish to delete.
 * The virtual machine will be selected on your results; right click and select `Power Off` and wait for the machine to power off.
-* This step could lead to disaster so be certain you want to do this. Right click on the selected server again and select `Delete from Disk`
+* **This step could lead to disaster so be certain you want to do this**. Right click on the selected server again and select `Delete from Disk`
 
 #### Kick (Reboot) a Virtual Machine
 
