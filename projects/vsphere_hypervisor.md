@@ -19,7 +19,7 @@ You will need to make sure you are on the princeton network and connected using 
 * Select `Upload Files` option and navigate to where you have the 3 Files you saved above and press `NEXT`
 * Give the `Virtual machine name:` a name (ideal that matches DNS)
 * From `Select a location for the virtual machine` place the virtual machine in `Discovered virtual machine` for staging or `drdsetvms` on Production and press `NEXT`
-* From `Select the distination compute resource for this operation` expand the `VMCluster` and select one of the hosts and press `NEXT`
+* From `Select the destination compute resource for this operation` expand the `VMCluster` and select one of the hosts and press `NEXT`
 * Select one of the **none host** storage locations (they will usually have SAN on them and not a host name). The preference is to always `thin provision` the `Select virtual disk format` from the drop down and press `NEXT`
 * When Selecting the Network select `Virtual Machine Network` except in cases where a new VM will be in the private network and press `NEXT`
 * Press `Finish`
@@ -47,10 +47,11 @@ The following steps are needed to complete your Virtual Machine setup.
      sudo perl -pi -e 's/lib-vm/yourdns1/g' /etc/hosts
      ```
 
- * The next step will take a while. Go grab :coffee: after your run the `unminimize` command below:
+ * Update the VM by running `apt` command below:
 
    ```zsh
-   sudo unminimize -y
+   sudo apt -y update
+   sudo apt -y upgrade
    ```
  * When this is completed. Restart your Virtual Machine with `sudo /sbin/reboot`
 
