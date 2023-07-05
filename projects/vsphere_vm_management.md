@@ -11,7 +11,7 @@ You will need to make sure you are on the princeton network and connected using 
 
 #### Deploy OVF Template
 
-* From a separate tab or browser Download and save the OVF template files from [Google Drive](https://drive.google.com/drive/folders/0B0s-Lc6vvmqqTF9yaklHWW1RdmM?resourcekey=0-tdIXAZtmu1klMhHUMSE00g)
+* From a separate tab or browser on your Windows machine, download and save the OVF template files from [Google Drive](https://drive.google.com/drive/folders/0B0s-Lc6vvmqqTF9yaklHWW1RdmM?resourcekey=0-tdIXAZtmu1klMhHUMSE00g)
 * On Staging Select *Library-Dev* and on Prod Select either *Library* or *Diglib*
 * On Staging Select the the *VMCluster* **Actions** and on Prod Select either *Library* or *Diglib* **Actions** with three ellipses at the top right hand panel
 * You will select the `Deploy OVF Template...` which will launch a Wizard.
@@ -20,9 +20,11 @@ You will need to make sure you are on the princeton network and connected using 
 * Give the `Virtual machine name:` a name (ideal that matches DNS)
 * From `Select a location for the virtual machine` place the virtual machine in `Discovered virtual machine` for staging or `drdsetvms` on Production and press `NEXT`
 * From `Select the destination compute resource for this operation` expand the `VMCluster` and select one of the hosts and press `NEXT`
-* Select one of the **none host** storage locations (they will usually have SAN on them and not a host name). The preference is to always `thin provision` the `Select virtual disk format` from the drop down and press `NEXT`
-* When Selecting the Network select `Virtual Machine Network` except in cases where a new VM will be in the private network and press `NEXT`
+* Select one of the **none host** storage locations (they will usually have SAN on them and not a host name).
+* After you have selected the storage location, change the `Select virtual disk format` drop down option to `thin provision` and press `NEXT`
+* Select `Virtual Machine Network` for the network (default is the private network) except in cases where a new VM will be in the private network and press `NEXT`
 * Press `Finish`
+* If you are creating more than one VM, you must wait for the first one to be completed before starting the next one
 
 #### Initial VM Configuration
 
@@ -30,7 +32,7 @@ The following steps are needed to complete your Virtual Machine setup.
 
  * Get the MAC address of the VM by right click (with the virtual machine highlighted) to edit settings. (You may need to ensure `CD/DVD drive 1` is set to *Client Device*) select `Network adapter 1` and expand to get the MAC address
  * Register the [MAC address](http://networkregistration.princeton.edu)
- * If this is a new machine make a PR on the [infrastructure repo](https://github.com/PrincetonUniversityLibrary/infra) to register the new Virtual Machine
+ * If this is a new machine make a PR updating the inventory on the [princeton_ansible repo](https://github.com/pulibrary/princeton_ansible) to register the new Virtual Machine
  * Power On the Virtual Machine with a right click and select `Power On`
  * If your new Virtual Machine name will be `yourdns1.princeton.edu` You can now connect to the Virtual Machine with `ssh pulsys@yourdns1.princeton.edu`
  * You will `possibly` get a **MAN-IN-THE-MIDDLE** attack warning
