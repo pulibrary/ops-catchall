@@ -42,7 +42,7 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/02-insta
     ```
   4. Set Up IcingaDB (Redis)
      ```bash
-     sudo apt install icingadb-redis
+     sudo apt -y install icingadb-redis
      ```
      Enable and start the db with the following:
      ```bash
@@ -96,6 +96,13 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/02-insta
       sudo systemctl enable --now icingadb
       sudo systemctl restart icingadb
       ```
+    6. Set Up the monitoring database by installing the following:
+      ```bash
+      sudo apt -y install icinga2-ido-pgsql
+      ```
+      Use the password credentials you have used above at the prompts
+      Examine the file at this location `/etc/dbconfig-common/icinga2-ido-pgsql.conf` and make changes
+
 ### IcingaWeb
 
 The project [documentation](https://icinga.com/docs/icinga-web/latest/doc/02-Installation/02-Ubuntu/#install-the-web-server) will be our guide
@@ -112,7 +119,7 @@ The project [documentation](https://icinga.com/docs/icinga-web/latest/doc/02-Ins
 
      Hint: If you need this later you can get the resulting token by running the following:
      ```bash
-     icingacli setup token show
+     sudo icingacli setup token show
      ```
 
      We will now need to create the fall back authentication by creating a database that will have the initial admin user. Create the database with the following:
@@ -123,5 +130,22 @@ The project [documentation](https://icinga.com/docs/icinga-web/latest/doc/02-Ins
      createdb -E UTF8 --locale en_US.UTF-8 -T template0 -O icingaweb2 icingaweb2
      ```
 
-     Finally visit Icinga Web 2 in your browser to access the setup wizard and complete the installation:
-     `/icingaweb2/setup`
+   2. Finally visit Icinga Web 2 in your browser to access the setup wizard and complete the installation:
+      ```bash
+      /icingaweb2/setup
+      ```
+      * Enter the token you created above in step 1 select *Next*
+      * Toggle the *Migrate* and *Doc* buttons and leave the monitoring one on then select *Next*
+      * Make sure all the modules are enabled and select *Next*
+      * For authentication type select *Database* (LDAP will be configured later) and select *Next*
+        * Leave Resource Name with the default Name
+        * For *Database* choose PostgreSQL from the drop down
+        * Enter the database credentials from step 1 the *Validate* and click *Next*
+        * Leave the default backend name by selecting *Next*
+      * Create the admin user icingaadmin:<secretpassword> # save to lastpass
+      * For Application Configuration change *Syslog* to *File* and accept the defaults the click *Next* to complete configuration. Select *Next* and review the configuration. You can complete the configuration with *Next* if it looks OK. Or you can edit whatever looks off.
+      * Set up the monitoring by selecting *PostgreSQL* from the drop down and enter the icingadb2 credentials from step 6 above
+        * you may need to run `sudo icinga2 feature enable ido-pgsql`
+      * Set up command transport by entering the credentials from `/etc/icinga2/conf.d/api-users.conf` *Validate* then click *Next*
+      * Accept the defaults on *Monitoring Security* then Finish you Installation by Clicking *Finish*
+
