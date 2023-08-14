@@ -84,3 +84,5 @@ The project [documentation](https://icinga.com/docs/icinga-web/latest/doc/02-Ins
          permissions = "*"
          groups = "Administrators"
         ```
+   * From the WebUI navigate to the icingaadmin and select Configuration --> Application
+     * Select *Access Control Backends* Tab and make the *pu_ldap* the first authentication backend resource
