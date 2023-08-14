@@ -16,20 +16,24 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/02-insta
  1. As `root` Add the Icinga Ubuntu repository with the following:
     ```bash
     sudo bash
-    apt update
-    apt -y install apt-transport-https wget gnupg
-    wget -O - https://packages.icinga.com/icinga.key | gpg --dearmor -o /usr/share/keyrings/icinga-archive-keyring.gpg
-    . /etc/os-release; if [ ! -z ${UBUNTU_CODENAME+x} ]; then DIST="${UBUNTU_CODENAME}"; else DIST="$(lsb_release -c| awk '{print $2}')"; fi; \
-    echo "deb [signed-by=/usr/share/keyrings/icinga-archive-keyring.gpg] https://packages.icinga.com/ubuntu icinga-${DIST} main" > \
-    /etc/apt/sources.list.d/${DIST}-icinga.list
-    echo "deb-src [signed-by=/usr/share/keyrings/icinga-archive-keyring.gpg] https://packages.icinga.com/ubuntu icinga-${DIST} main" >> \
-    /etc/apt/sources.list.d/${DIST}-icinga.list
 
-    apt update
+    apt -y update
+
+    apt -y install apt-transport-https wget gnupg
+
+    wget -O - https://packages.icinga.com/icinga.key | gpg --dearmor -o /usr/share/keyrings/icinga-archive-keyring.gpg
+
+    . /etc/os-release; if [ ! -z ${UBUNTU_CODENAME+x} ]; then DIST="${UBUNTU_CODENAME}"; else DIST="$(lsb_release -c| awk '{print $2}')"; fi; \
+     echo "deb [signed-by=/usr/share/keyrings/icinga-archive-keyring.gpg] https://packages.icinga.com/ubuntu icinga-${DIST} main" > \
+     /etc/apt/sources.list.d/${DIST}-icinga.list
+     echo "deb-src [signed-by=/usr/share/keyrings/icinga-archive-keyring.gpg] https://packages.icinga.com/ubuntu icinga-${DIST} main" >> \
+     /etc/apt/sources.list.d/${DIST}-icinga.list
+
+    apt -y update
     ```
 2. Install Icinga2 and Icinga Plugins
    ```bash
-   sudo apt -y install icinga2 vim-icinga2 monitoring-plugins
+   sudo apt -y install icinga2 monitoring-plugins
    ```
  3. Set Up Icinga2 API
     ```bash
@@ -91,15 +95,20 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/02-insta
 
       Icinga DB installs its configuration file to `/etc/icingadb/config.yml`, pre-populating most of the settings for a local setup. Before running Icinga DB, adjust the Redis and database credentials and, if necessary, the connection configuration. Specifically make sure you switch the database from `mysql` to `pgsql` then add the password from earlier in step 5. 
       Enable icingadb with the following command:
-
       ```bash
       sudo systemctl enable --now icingadb
       sudo systemctl restart icingadb
-      ```
-    6. Set Up the monitoring database by installing the following:
+      ````
+
+   6. Set Up the monitoring database by installing the following:
       ```bash
       sudo apt -y install icinga2-ido-pgsql
       ```
       Use the password credentials you have used above at the prompts
       Examine the file at this location `/etc/dbconfig-common/icinga2-ido-pgsql.conf` and make changes
+      ```bash
+       sudo icinga2 feature enable ido-pgsql
+       sudo systemctl restart icinga2
+       ```
 
+   7. You can proceed to [setup the IcingaWeb2](icinga2_web.md)
