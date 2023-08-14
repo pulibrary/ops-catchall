@@ -44,3 +44,43 @@ The project [documentation](https://icinga.com/docs/icinga-web/latest/doc/02-Ins
       * Set up command transport by entering the credentials from `/etc/icinga2/conf.d/api-users.conf` *Validate* then click *Next*
       * Accept the defaults on *Monitoring Security* then Finish you Installation by Clicking *Finish*
 
+  3. The following steps will set up LDAP authentication
+     * Open the file `/etc/icingaweb2/resources.ini` and add this block
+       ```ini
+       [pu_ldap]
+        type = "ldap"
+        hostname = "ldapproxy.princeton.edu"
+        port = "636"
+        encryption = "ldaps"
+        root_dn = "dc=pu,dc=win,dc=princeton,dc=edu"
+        bind_dn = "CN=<service account>,OU=Library - Office of the Deputy University Librarian,OU=People,DC=pu,DC=win,DC=princeton,DC=edu"
+        bind_pw = "s3cr3tp455"
+        timeout = "5"
+       ```
+     * Open the file `/etc/icingaweb2/authentication.ini` and add this block
+       ```ini
+       [ldap-user-auth]
+        backend = "ldap"
+        resource = "pu_ldap"
+        user_class = "user"
+        user_name_attribute = "sAMAccountName"
+        domain = "princeton.edu"
+        filter = "(&(objectCategory=Person)(sAMAccountName=*))"
+        ```
+     * Open the file `/etc/icingaweb2/groups.ini` and add this block
+       ```ini
+       [ldap-group-auth]
+        backend = "ldap"
+        resource = "pu_ldap"
+        group_class = "group"
+        group_name_attribute = "cn"
+        group_filter = "objectCategory=Group"
+        user_backend = "ldap-user-auth"
+        group_member_attribute = "member" 
+     * Open the file `/etc/icingaweb2/roles.ini` and add this block
+       ```ini
+        [Administrators]
+         users = "icingaadmin, netid@PRINCETON.EDU"
+         permissions = "*"
+         groups = "Administrators"
+        ```
