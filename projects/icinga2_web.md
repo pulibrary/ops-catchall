@@ -4,7 +4,14 @@ The project [documentation](https://icinga.com/docs/icinga-web/latest/doc/02-Ins
 
   1. Install Icinga Web2 with the following:
      ```bash
-     sudo apt-get install icingaweb2 libapache2-mod-php icingacli
+     sudo apt -y install icingaweb2 libapache2-mod-php icingacli php8.1-imagick
+     ```
+     We will now need to create the fall back authentication by creating a database that will have the initial admin user. Create the database with the following:
+
+     ```bash
+     sudo su -l postgres 
+     createuser -P icingaweb2 # save this to lastpass
+     createdb -E UTF8 --locale en_US.UTF-8 -T template0 -O icingaweb2 icingaweb2
      ```
      Prepare the Web Setup by creating the token we will pass to the web browser during setup. Run the following command:
 
@@ -17,16 +24,11 @@ The project [documentation](https://icinga.com/docs/icinga-web/latest/doc/02-Ins
      sudo icingacli setup token show
      ```
 
-     We will now need to create the fall back authentication by creating a database that will have the initial admin user. Create the database with the following:
 
-     ```bash
-     sudo su -l postgres 
-     createuser -P icingaweb2 # save this to lastpass
-     createdb -E UTF8 --locale en_US.UTF-8 -T template0 -O icingaweb2 icingaweb2
-     ```
-
-   2. Finally visit Icinga Web 2 in your browser to access the setup wizard and complete the installation:
+   2. Restart the Webserver and Icinga2 application then visit Icinga Web 2 in your browser to access the setup wizard and complete the installation:
       ```bash
+      sudo systemctl restart apache2
+      sudo systemctl restart icinga2
       /icingaweb2/setup
       ```
       * Enter the token you created above in step 1 select *Next*
