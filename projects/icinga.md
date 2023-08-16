@@ -32,6 +32,7 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/02-insta
     apt -y update
     ```
 2. Install Icinga2 and Icinga Plugins
+   This will install Icinga for both agents and master nodes. For agents installation this is the only step required. You will want to go back to [agent configuration](icinga2_agents.md)
    ```bash
    sudo apt -y install icinga2 monitoring-plugins
    ```

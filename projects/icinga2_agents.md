@@ -7,8 +7,8 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/06-distr
      icinga2 node wizard # command run as root
      ```
      * select *n* to create a master node
-     * If the common name is correct accept the hostname of the server
-     * Accept the default name of Master
+     * If the common name is correct accept the FQDN of the server
+     * Accept the FQDN default name of Master
      * Select the default of *N* to not set up additional zones
      * Leave the Optional settings of Bind for host and port empty
      * Disable the inclusion of the `conf.d` directory
@@ -21,7 +21,7 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/06-distr
      icinga2 node wizard # command run as root
      ```
      * select *Y* to create an agent node
-     * If the common name is correct accept the hostname of the server
+     * If the common name is correct accept the FQDN of the server
      * Enter the CN of the master from step 1. 
      * Select *Y* to establish a connection to the parent node
      * Enter the *FQDN* of the Master from step 1.
