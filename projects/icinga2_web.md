@@ -1,6 +1,6 @@
 ### IcingaWeb
 
-The project [documentation](https://icinga.com/docs/icinga-web/latest/doc/02-Installation/02-Ubuntu/#install-the-web-server) will be our guide
+The project [documentation](https://icinga.com/docs/icinga-web/latest/doc/02-Installation/02-Ubuntu/#install-the-web-server) will be our guide. These steps assume you already have [Icinga2](icinga.md) setup
 
   1. Install Icinga Web2 with the following:
      ```bash
@@ -86,5 +86,6 @@ The project [documentation](https://icinga.com/docs/icinga-web/latest/doc/02-Ins
          permissions = "*"
          groups = "Administrators"
         ```
-   * From the WebUI navigate to the icingaadmin and select Configuration --> Application
+   4. From the WebUI navigate to the icingaadmin and select Configuration --> Application
      * Select *Access Control Backends* Tab and make the *pu_ldap* the first authentication backend resource
+   5. You can now [Setup Agents/Satellites](icinga2_agents.md)
