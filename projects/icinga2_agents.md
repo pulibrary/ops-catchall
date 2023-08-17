@@ -38,12 +38,8 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/06-distr
      ```bash
      systemctl restart icinga2
      ```
-  3. On the master node edit the `/etc/icinga2/zones.conf` to look like the hint below
+  3. Create a directory where all the configuration files will reside by running `mkdir -p /etc/icinga2/zones.d/master` On the master node create the file `/etc/icinga2/zones.d/agents.conf` to look like the hint below
      ```conf
-     object Endpoint "icinga2-master1.princeton.edu" {
-       // That's us
-     }
-
      object Endpoint "lib-postgres-staging1.princeton.edu" {
        host = "192.168.56.111" // The master actively tries to connect to the agent
        log_duration = 0 // Disable the replay log for command endpoint agents
@@ -52,11 +48,6 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/06-distr
      object Endpoint "pdc-describe-staging1.princeton.edu" {
        host = "192.168.56.112" // The master actively tries to connect to the agent
        log_duration = 0 // Disable the replay log for command endpoint agents
-     }
-
-
-     object Zone "master" {
-       endpoints = [ "icinga2-master1.princeton.edu" ]
      }
 
      object Zone "lib-postgres-staging1.princeton.edu" {
@@ -71,17 +62,10 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/06-distr
        parent = "master"
      }
 
-     /* sync global commands */
-     object Zone "global-templates" {
-       global = true
-     }
-     object Zone "director-global" {
-       global = true
-     }
      ```
   3. On the agent node edit the `/etc/icinga2/zones.conf` to look like the hint below
      ```conf
-     object Endpoint "icinga2-master1.princeton.edu" {
+     object Endpoint "icinga2-master-node1.princeton.edu" {
        // Do not actively connect to the master by leaving out the 'host' attribute
      }
 
@@ -106,10 +90,7 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/06-distr
        global = true
      }
      ```
-  4. On the master node create a new configuration directory with:
-     ```bash
-      mkdir -p /etc/icinga2/zones.d/master
-     ```
+  4. On the master node create a new configuration file in the `/etc/icinga2/zones.d/master` directory with:
      Add the two agent nodes as host objects by creating a file named `hosts.conf`
      ```conf
      object Host "lib-postgres-staging1.princeton.edu" {
