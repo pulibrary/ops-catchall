@@ -38,7 +38,7 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/06-distr
      ```bash
      systemctl restart icinga2
      ```
-  3. Create a directory where all the configuration files will reside by running `mkdir -p /etc/icinga2/zones.d/master` On the master node create the file `/etc/icinga2/zones.d/agents.conf` to look like the hint below
+  3. Create a directory where all the configuration files will reside by running `mkdir -p /etc/icinga2/zones.d/master` On the master node create two new files `/etc/icinga2/zones.d/master/agents_endpoints.conf` to look like the hint below
      ```conf
      object Endpoint "lib-postgres-staging1.princeton.edu" {
        host = "192.168.56.111" // The master actively tries to connect to the agent
@@ -49,7 +49,10 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/06-distr
        host = "192.168.56.112" // The master actively tries to connect to the agent
        log_duration = 0 // Disable the replay log for command endpoint agents
      }
+     ```
+     and another file named `/etc/icinga2/zones.d/master/agents_zones.conf` to look like the hint below:
 
+     ```conf
      object Zone "lib-postgres-staging1.princeton.edu" {
        endpoints = [ "lib-postgres-staging1.princeton.edu" ]
 
