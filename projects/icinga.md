@@ -70,10 +70,21 @@ The project [documentation](https://icinga.com/docs/icinga-2/latest/doc/02-insta
       sudo apt-get -y install postgresql postgresql-contrib icingadb
       ```
       Set up a PostgreSQL database for Icinga DB:
+      become the postgres user with
       ```bash
       sudo su -l postgres
-      createuser -P icingadb # save password to lastpass
+      ```
+      create an icingadb user with:
+      ```bash
+      createuser -P icingadb
+      ```
+      you will be prompted for a password. save password to lastpass. Create a new database owned by the new `icingadb` user with:
+      ```bash
       createdb -E UTF8 --locale en_US.UTF-8 -T template0 -O icingadb icingadb
+      ```
+      Add the `citext` extension to the icingadb with:
+
+      ```bash
       psql icingadb <<<'CREATE EXTENSION IF NOT EXISTS citext;'
       ```
       Keeping in mind the postgresql reads the `pg_hba.conf` file in order edit `/etc/postgresql/15/main/pg_hba.conf` and add the following:
