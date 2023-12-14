@@ -39,7 +39,7 @@
 
 ## Run the Ansible playbook
 
-- Run the ```playbooks/[project_name].yml``
+- Run the ```playbooks/[project_name].yml```
 
 ## Deploy the application 
 
