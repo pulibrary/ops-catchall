@@ -6,7 +6,7 @@ In this guide, you'll learn how to install Drupal 9 with Nginx and a [LEMP](lemp
 
 Drupal depends on the same Nginx, MariaDB and PHP. After installing the [LEMP](lemp.md) stack, you'll need to set up a few things to get Drupal running.
 
-Create a new Nginx server configuration block to use PHP Processor. 
+Create a new Nginx server configuration block to use PHP Processor.
 
 ```bash
 sudo vim /etc/nginx/sites-available/drupal_sandbox_fkayiwa
@@ -110,6 +110,20 @@ Install unzip.
 
 ```bash
 sudo apt install unzip
+```
+
+#### Install Drupal Dependencies
+
+Drupal expects the following php extensions:
+
+```bash
+sudo apt -y install php-dompdf php-xml php8.1-mbstring
+```
+
+Drupal upgrade works best with Composer and php-curl. Install those with the following commands:
+
+```bash
+sudo apt -y install composer php-curl
 ```
 
 Download the latest version of the Drupal from Drupal download page.
