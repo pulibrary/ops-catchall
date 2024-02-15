@@ -33,7 +33,40 @@ The following steps are needed to complete your Virtual Machine setup.
  * If this is a new machine make a PR on the [infrastructure repo](https://github.com/PrincetonUniversityLibrary/infra) to register the new Virtual Machine
  * Power On the Virtual Machine with a right click and select `Power On`
  * If your new Virtual Machine name will be `yourdns1.princeton.edu` You can now connect to the Virtual Machine with `ssh pulsys@yourdns1.princeton.edu`
- * You will `possibly` get a **MAN-IN-THE-MIDDLE** attack warning
+
+<details>
+<summary>* You will `possibly` get a **MAN-IN-THE-MIDDLE** attack warning
+
+</summary>
+
+You may encounter this message in your shell when attempting to connect: 
+
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+SHA256:CfV92vg1Slp+DvYHGeMItTV/N7dGsGBXc0h8A63RJ9s.
+Please contact your system administrator.
+Add correct host key in /Users/user_name/.ssh/known_hosts to get rid of this message.
+Offending ED25519 key in /Users/user_name/.ssh/known_hosts:24
+Host key for pul-sandbox.lib.princeton.edu has changed and you have requested strict checking.
+Host key verification failed.
+```
+## Use this command to edit your known_hosts file
+
+`vim ~/.ssh/known_hosts +"24d|x"` 
+
+Notice that the line number corresponds to the text:
+```
+"Offending ED25519 key in /Users/user_name/.ssh/known_hosts:24"
+```
+
+You should now be able to ssh into your machine.
+</details>
  * Edit the host name at the following locations
    * substitute the name `lib-vm` on `/etc/hosts` and `/etc/hostname` with `yourdns1`
    * the following perl command will do that:
