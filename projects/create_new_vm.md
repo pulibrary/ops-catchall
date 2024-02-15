@@ -1,13 +1,6 @@
-### Get the mac address of the VM you are about to replace
 
-- Log into VM from terminal
-- ```ip a``` (copy last 6 digits [e.g. 1b.25.cc] of mac address)
-- ```sudo /sbin/halt -p``` (to shut down)
+### Create a new Jammy VM 
 
-### Create a Jammy VM on the same host you are replacing
-
-- Rename the current VM with today's date (e.g. lib-vm-YYYY-MM-DD)
-        - Check which compute resource it's on and note this
 - Search for "template" and open template_jammy_2023_11
     - Click on Actions and then New VM from This Template
         - Name is same as original VM
@@ -27,22 +20,12 @@
             ```sudo perl -pi -e s/lib-vm/[VM name]/g /etc/hostname```
         - ```sudo apt -y update```
         - ```sudo apt -y upgrade```
+        - ```sudo /sbin/reboot```
 
-## Expand the disk size following the steps in https://github.com/pulibrary/pul-it-handbook/blob/main/services/disk_lvm_expansion.md
+## Expand the disk size 
 
-- Note: should only need to run first two commands in instructions above to expand initial disk size. If a new disk is needed, follow rest of steps
-```sudo /sbin/reboot```
+Our VMS will be using 14GB or the allocated thin provisioned 28GB. The following steps will expand it to utilize all of the space. The following steps will expand your initial disk size
 
-## Edit the group_vars .yml file 
-
-- Check out a new branch ("i####_vm_name") and edit the ```group_vars/project/main.yml``` (sometimes ```group_vars/project/common.yml``` or ```/roles/project/vars/main.yml``` to have php_version: "8.1")
-
-## Run the Ansible playbook
-
-- Run the ```playbooks/[project_name].yml```
-
-## Deploy the application 
-
-- Run a cap to deploy the application
-- See documentation in application repos for specific deploy instructions
-
+- ```sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv```
+- ```sudo resize2fs /dev/ubuntu-vg/ubuntu-lv```
+- ```sudo /sbin/reboot```
