@@ -15,7 +15,14 @@ Notes: Some machines will fail for now
 
 ### On Tuesdays, run the os_updates playbook on production machines 
 
-1. Repeat steps 1 & 2 above.
+1. Repeat steps 1 & 2 from Mondays.
 2. Run the following playbook on production machines: 
 `ansible-playbook playbooks/os_updates.yml -e runtime_env=production`
-3. Steps 4 & 5 and notes are same as above 
+3. Steps 4 & 5 and notes are same as those on Mondays. 
+
+### On Tuesdays, run the os_updates playbook on qa machines 
+
+1. Repeat steps 1 & 2 from Mondays.
+2. Run the following playbook on qa machines: 
+`ansible-playbook playbooks/os_updates.yml -e runtime_env=qa`
+3. Steps 4 & 5 and notes are same as those on Mondays. 
