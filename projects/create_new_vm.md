@@ -26,7 +26,7 @@
 ## Prepare your New VM
 
 - Log in to new VM
--  - Because this is the first time logging into the VM, you may get a warning about a man-in-the-middle attack, and you will need to edit the .ssh/known_hosts file to add your ssh keys at the line specified in the output you receive. Shortcut command to do this: ```vim ~/.ssh/known_hosts +"[line#]d|x"```
+-  - Because this is the first time logging into the VM, if another VM has had the same FQDN (for example, `my-project-staging1`) in the past, you will get a warning about a man-in-the-middle attack. If you get this warning, you need to edit your local `.ssh/known_hosts` file to remove the old entry for that IP. The error output specifies the line number to look for and delete. Shortcut command to do this: ```vim ~/.ssh/known_hosts +"[line#]d|x"```
         - Change the name of the VM:
             ```sudo perl -pi -e s/lib-vm/[VM name]/g /etc/hosts```
             ```sudo perl -pi -e s/lib-vm/[VM name]/g /etc/hostname```
