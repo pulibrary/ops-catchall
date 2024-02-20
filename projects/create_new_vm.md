@@ -40,7 +40,6 @@ Our VMS will be using 14GB or the allocated thin provisioned 28GB. The following
 
 - ```sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv```
 - ```sudo resize2fs /dev/ubuntu-vg/ubuntu-lv```
-- ```sudo /sbin/reboot```
 
 ## Add your host to the prancible inventory
 
