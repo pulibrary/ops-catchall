@@ -26,3 +26,13 @@ Notes: Some machines will fail for now
 2. Run the following playbook on qa machines: 
 `ansible-playbook playbooks/os_updates.yml -e runtime_env=qa`
 3. Steps 4 & 5 and notes are same as those on Mondays. 
+
+### Troubleshooting
+
+1. Some updates will require the endpoint to reboot. The [Dataspace](https://dataspace.princeton.edu) application will sometimes fail after reboot. The site will return with an error saying it is in maintenance mode. You will need to run the following steps to get it back up.
+
+  ```bash
+  ssh -J pulsys@bastion-prod.pulcloud.io pulsys@10.244.0.3
+  sudo su - deploy
+  dsbounce
+  ```
