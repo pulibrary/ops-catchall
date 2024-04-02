@@ -165,5 +165,13 @@ When your machine reboots you can now create a bare minimal installation.
 
   * With your Virtual Machine powered select the **Edit virtual machine settings menu**
   * In the new Hardware window select **CD/DVD (SATA)** and change the Connection from **Use ISO image** to **Use a physical drive** then click **Save**
-  * You can now export image by select the **File** Menu and **Export to OVF** (This will take a little while)
+  * You can now export image by select the **File** Menu and **Export to OVF** (This will take a little while). Create a new directory to place all the image files together.
   * When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
+    * When creating a cloud image an additional step will be required to convert this file to the ova format. The following step will accomplish this.
+      ```bash
+      ovftool pul_image.ovf pul_image.ova
+      ```
+      The step above must be run from the directory that contains all three files from the export process
+
+  * You can now follow the [VSphere Steps](vsphere_hypervisor.md) to import
+      
