@@ -160,3 +160,10 @@ When your machine reboots you can now create a bare minimal installation.
     ```
     * repeat the same steps above for the pulsys user
   * shutdown your VM with `sudo shutdown -h now`
+
+#### Export your VM
+
+  * With your Virtual Machine powered select the **Edit virtual machine settings menu**
+  * In the new Hardware window select **CD/DVD (SATA)** and change the Connection from **Use ISO image** to **Use a physical drive** then click **Save**
+  * You can now export image by select the **File** Menu and **Export to OVF** (This will take a little while)
+  * When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
