@@ -121,3 +121,48 @@ When your machine reboots you can now create a bare minimal installation.
       # Keys for VickieKarasic
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKDUPnOTVebrlXOOu7t1P2Wv+SB6rMC4jOEtqsaR8MVZ
       ```
+
+  #### Strip out unique data
+
+  * Cleanup the tmp directories with the following:
+    ```bash
+    doas su
+    rm -rf /tmp/*
+    rm -rf /var/tmp/*
+    ```
+  * Cleanup current ssh-keys
+    ```bash
+    doas su
+    rm -f /etc/ssh/ssh_host_*
+    ```
+  * Check for ssh keys on reboot...regenerate if necessary
+    ```bash
+    doas su
+    cat << 'EOL' | doas tee /etc/rc.firsttime
+    #!/bin/sh -e
+    #
+    # rc.firsttime
+    # check for SSH keys and create if not present
+    test -f /etc/ssh/ssh_host_dsa_key || /etc/rc.d/sshd restart
+    exit 0
+    EOL
+    ```
+  * Make sure the script is executable with:
+    ```bash
+    doas su
+    chmod +x /etc/rc.firsttime
+    ```
+  * shutdown your VM with `doas halt -p`
+
+#### Export your VM
+
+  * With your Virtual Machine powered select the **Edit virtual machine settings menu**
+  * In the new Hardware window select **CD/DVD (SATA)** and change the Connection from **Use ISO image** to **Use a physical drive** then click **Save**
+  * You can now export image by select the **File** Menu and **Export to OVF** (This will take a little while). Create a new directory to place all the image files together.
+  * When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
+    * When creating a cloud image an additional step will be required to convert this file to the ova format. The following step will accomplish this.
+      ```bash
+      ovftool pul_obsd_image.ovf pul_obsd_image.ova
+      ```
+      The step above must be run from the directory that contains all three files from the export process
+
