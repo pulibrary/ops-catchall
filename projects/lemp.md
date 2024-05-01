@@ -81,6 +81,7 @@ sudo apt install -y php-fpm php-mysql
 
 Allow HTTP and HTTPS traffic through the UFW firewall.
 
+**NOTE** Pul devs can ignore this:
 ```bash
 sudo ufw allow http
 sudo ufw allow https
@@ -125,14 +126,11 @@ Restart Nginx.
 sudo systemctl restart nginx.service
 ```
 
-Follow the instructions to get a [TLS certificate](https://github.com/pulibrary/pul-it-handbook/blob/main/services/create_ssl_certs.md) from OIT. When you received the signed certicates
-
-Place the files under your nginx directory on your server with the following
+Follow the instructions to get a [TLS certificate](ihttps://github.com/pulibrary/ops-catchall/blob/92dc3af0c8fc7acd89981738032839f54043001d/projects/incommon/incommon_certbot.md) using ACME from SECTIGO. The Certbot tool will place your files at the path below.
 
 ```bash
-sudo mkdir -p /etc/nginx/ssl{certs/private}
-sudo mv sandbox-fkayiwa_lib_princeton_edu_chained.pem /etc/nginx/ssl/certs
-sudo mv sandbox-fkayiwa_lib_princeton_edu_priv.key /etc/nginx/ssl/private
+/etc/letsencrypt/live/sandbox-fkayiwa/fullchain.pem
+/etc/letsencrypt/live/sandbox-fkayiwa/privkey.pem
 ```
 
 Open the Nginx config file again.
@@ -156,8 +154,8 @@ Replace everything with the following code snippet, save, and exit.
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    ssl_certificate /etc/nginx/ssl/certs/sandbox-fkayiwa_lib_princeton_edu_chained.pem;
-    ssl_certificate_key /etc/nginx/ssl/private/sandbox-fkayiwa_lib_princeton_edu_priv.key;
+    ssl_certificate /etc/letsencrypt/live/sandbox-fkayiwa/fullchain.pem;
+    ssl_certificate /etc/letsencrypt/live/sandbox-fkayiwa/privkey.pem;
     root /var/www/sandbox-fkayiwa;
     index index.php index.html index.htm index.nginx-debian.html;
     add_header X-XSS-Protection "1; mode=block";
