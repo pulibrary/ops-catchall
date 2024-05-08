@@ -155,7 +155,7 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
     ssl_certificate /etc/letsencrypt/live/sandbox-fkayiwa/fullchain.pem;
-    ssl_certificate /etc/letsencrypt/live/sandbox-fkayiwa/privkey.pem;
+    ssl_certificate_key /etc/letsencrypt/live/sandbox-fkayiwa/privkey.pem;
     root /var/www/sandbox-fkayiwa;
     index index.php index.html index.htm index.nginx-debian.html;
     add_header X-XSS-Protection "1; mode=block";
