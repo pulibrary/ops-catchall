@@ -126,7 +126,7 @@ Restart Nginx.
 sudo systemctl restart nginx.service
 ```
 
-Follow the instructions to get a [TLS certificate](ihttps://github.com/pulibrary/ops-catchall/blob/92dc3af0c8fc7acd89981738032839f54043001d/projects/incommon/incommon_certbot.md) using ACME from SECTIGO. The Certbot tool will place your files at the path below.
+Follow the instructions to get a [TLS certificate](ihttps://github.com/pulibrary/ops-catchall/blob/92dc3af0c8fc7acd89981738032839f54043001d/projects/incommon/incommon_certbot.md) using [ACME from SECTIGO](https://github.com/pulibrary/ops-catchall/blob/main/projects/incommon/incommon_certbot_ubuntu.md). The Certbot tool will place your files at the path below.
 
 ```bash
 /etc/letsencrypt/live/sandbox-fkayiwa/fullchain.pem
