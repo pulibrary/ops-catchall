@@ -1,8 +1,6 @@
-### Create a denylist OpenBSD Virtual Machine
+### Create an OpenBSD Virtual Machine
 
-**Don't Panic!**
-
-These steps will setup a [denylist](https://denylist.pulcloud.io) VM which will be configured and managed by [https://github.com/pulibrary/princeton_ansible/blob/main/playbooks/denyhost.yml](https://github.com/pulibrary/princeton_ansible/blob/main/playbooks/denyhost.yml)
+These steps will setup an OpenBSD VM on Google Cloud. This documentation was originally written to support the first implementation of the external DenyList for our firewall. That functionality has been moved to an S3 file.
 
 #### Prerequisites to Install OpenBSD on (Google Cloud)
 
@@ -165,4 +163,3 @@ When your machine reboots you can now create a bare minimal installation.
       ovftool pul_obsd_image.ovf pul_obsd_image.ova
       ```
       The step above must be run from the directory that contains all three files from the export process
-
