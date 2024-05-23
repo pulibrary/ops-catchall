@@ -3,7 +3,7 @@
 
 ## Create the Host on VSphere
 
-- Search for "template" and open template_jammy_2023_11
+- Search for "template" and open the latest Jammy Jellyfish template (e.g. "jammy_season_year")
 - Click on Actions and then New VM from This Template
     1. Name is same as original VM
     2. On dev, choose Library-Dev -> Discovered virtual machine
