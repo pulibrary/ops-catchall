@@ -18,6 +18,16 @@
 ## Register the Host on the Network
 
 1. Our network requires a registered MAC address to OIT DHCP Server. The steps to do this can be accomplished at the following [URI Network registration](https://princeton.service-now.com/service?id=sc_category&sys_id=0c0591f14f9d270c18ddd48e5210c79c) - use the MAC address from step 9 above
+    - In the Device Type drop-down, start typing in Linux and choose Linux Server
+    - In the Model drop-down, start typing VMWare and choose VMWare, Inc. VMWare Virtual Platform
+    - For Ownership type, choose University 
+    - For "What would you like to register?" choose Wired from the drop-down
+    - For Type of wired IP, choose Static 
+    - For Network/Subnet choose, start typing libnet and choose that from the drop-down
+    - Under wired MAC address, paste the MAC address that you copied in step 9 in the previous section. Click the small "Add" button underneath
+    - Under Options as the last step, choose "Add external view if IPs globally routable"
+    - Submit the form; you should then receive IP address and other information in your email
+    
 2. Put in an l-support ticket to open firewall rules (assign to yourself)
 3. Log into Palo Alto and [create rules](https://github.com/pulibrary/pul-it-handbook/blob/main/services/panos_fw.md)
 4. Respond to the ticket with details of the rules and close ticket (see [examples](https://github.com/pulibrary/ops-catchall/blob/main/projects/panos_editing.md) of ServiceNow ticket wording)
