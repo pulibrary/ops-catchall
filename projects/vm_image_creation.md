@@ -9,29 +9,24 @@
 
 #### Download VMware and the Ubuntu ISO File
 
-  * Get and install [VMWare Workstation](https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html) (As of this Spring 2024 writing we still need amd64)
+  * Get and install QEMU and virt-manager
+  ```bash
+  sudo apt -y install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+  ```
   * Download the [Ubuntu LTS](https://ubuntu.com/download/server) iso file
+  * Create a Disk image
+  ```bash
+  qemu-img create -f qcow2 ubuntu-for-vsphere.qcow2 30G
+  ```
 
 #### Create a Linux Virtual Machine
 
-  * Launch VMware Workstation Player on your system. Click on the **Create a New Virtual Machine** option present on the home page.
-    * The New Virtual Machine Wizard window will launch. Click on **Custom (advanced)** option and then click **Next.**
-    * The Virtual Hardware Compatibility window will show. Select (as of Spring 2024) **ESXi 7.0** then click **Next**
-    * The Install operating system from window will launch. Select **Use ISO image** and browse to the location you downloaded the Ubuntu LTS iso file above then click **Next**
-      * From the Guest Operating System window select the defaults of **Linux** and **Ubuntu 64-bit** then click **Next**
-    * The Virtual Machine Name window will launch. Give the Virtual Machine a name (e.g pul_image) and select the resulting **Location** it creates and click **Next**
-      * From the Processors window select the defaults of **2 processors** and **1 core** per processor, then click **Next**
-    * From the Memory window slide the scale to **8 GB** of memory or enter **8192** in the box then click **Next**
-    * From the Network Connection window select the defaults of **Use network address translation (NAT) option, then click **Next**
-    * From the I/O Controller Types select the defaults of **LSI Logic (Recommended)** option, then click **Next**
-    * From the Virtual Disk Type window select the defaults of **SCSI (Recommended)** option, then click **Next**
-    * From the Disk window select the defaults of **Create a new virtual disk** option, then clieck **Next**
-    * From the Disk Size window increase the disk size to *30 GB** then click **Next**
-    * From the Disk File window you should have the name you created when you gave the virtual machine a name (e.g. pul_image.vmdk) click **Next**
-  * From the Ready to Create a Virtual Machine window, select the **Customize Hardware** option.
-    * Remove the **Sound card** and **USB Controller** 
-    * Select the **Display** option on the left and uncheck the **Accelerate 3D graphics** button, then click **Close**
-    * Click the **Finish** button
+  * Launch the virt-manager with `sudo virt-manager` on your system. Click on the **Create a New Virtual Machine** and Follow the Wizard.
+    * The New Virtual Machine Wizard window will launch. Choose **Local install media (ISO image or CDROM)** option.
+    * Select the Ubuntu ISO from above.
+    * Configure memory and CPU settings.
+    * Select the "ubuntu-for-vsphere.qcow2 disk you created.
+  * Complete the Ubuntu installation with the steps below
 
 #### Install Ubuntu on the Virtual Machine
 
