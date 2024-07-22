@@ -130,6 +130,8 @@ When your machine reboots you can now create a bare minimal installation.
     cat << 'EOL' | sudo tee /etc/rc.local
     #!/bin/sh -e
     #
+    # remove all original files
+    rm -f $SSH_KEYS_PATH/ssh_host_*
     # rc.local
     # check for SSH keys and create if not present
     test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
