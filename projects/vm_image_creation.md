@@ -99,6 +99,9 @@ When your machine reboots you can now create a bare minimal installation.
       # Keys for VickieKarasic
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKDUPnOTVebrlXOOu7t1P2Wv+SB6rMC4jOEtqsaR8MVZ
       ```
+#### Modify the network interface
+
+The qemu image will need a different network driver when mounted on a ESXI host. Modify the netplan device with the following `sudo vim /etc/netplan/00-installer-config.yaml` and replace the `ensp1*` with `ens160` that the ESXi expects. Close and save the file
 
 #### Strip out unique data
 
