@@ -11,13 +11,9 @@
 
   * Get and install QEMU and virt-manager
   ```bash
-  sudo apt -y install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+  sudo apt -y install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
   ```
   * Download the [Ubuntu LTS](https://ubuntu.com/download/server) iso file
-  * Create a Disk image
-  ```bash
-  qemu-img create -f qcow2 ubuntu-for-vsphere.qcow2 30G
-  ```
 
 #### Create a Linux Virtual Machine
 
@@ -25,7 +21,6 @@
     * The New Virtual Machine Wizard window will launch. Choose **Local install media (ISO image or CDROM)** option.
     * Select the Ubuntu ISO from above.
     * Configure memory and CPU settings.
-    * Select the "ubuntu-for-vsphere.qcow2 disk you created.
   * Complete the Ubuntu installation with the steps below
 
 #### Install Ubuntu on the Virtual Machine
