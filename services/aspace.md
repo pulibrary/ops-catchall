@@ -23,9 +23,9 @@ sudo apt -y install openjdk-11-jdk
 Create a new directory to save your file `mkdir solr` cd into it. Download the and install solr following the [Go to Production](https://solr.apache.org/guide/solr/latest/deployment-guide/taking-solr-to-production.html) steps:
 Ensure solr is listening on all interfaces because Archivesspace fails to run
 ```bash
-wget https://archive.apache.org/dist/solr/solr/9.6.1/solr-9.6.1.tgz
-tar xzf solr-9.6.1.tgz solr-9.6.1/bin/install_solr_service.sh --strip-components=2
-sudo bash ./install_solr_service.sh solr-9.6.1.tgz
+wget https://archive.apache.org/dist/solr/solr/8.11.3/solr-8.11.3.tgz
+tar xzf solr-8.11.3.tgz solr-8.11.3/bin/install_solr_service.sh --strip-components=2
+sudo bash ./install_solr_service.sh solr-8.11.3.tgz
 sudo service solr status
 ```
 
