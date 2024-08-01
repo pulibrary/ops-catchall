@@ -62,8 +62,8 @@ Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"
 WorkingDirectory=/opt/solr
 ExecStart=/opt/solr/bin/solr start -f
 ExecStop=/opt/solr/bin/solr stop -all
-TimeoutStartSec=120 
-TimeoutStopSec=120
+TimeoutStartSec=180 
+TimeoutStopSec=180
 
 [Install]
 WantedBy=multi-user.target
