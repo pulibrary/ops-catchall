@@ -136,6 +136,7 @@ cd /opt/archivesspace
 If this works create an archivesspace init.d file with the following:
 
 ```bash
+scripts/setup-database.sh 
 cd /etc/init.d
 sudo ln -s /opt/archivesspace/archivesspace.sh archivesspace
 sudo ./archivesspace start
