@@ -7,7 +7,7 @@
   * You will need an Intel amd64 based hardware for the rest of this document.
   * Install [Ubuntu Desktop](https://ubuntu.com/download/desktop)
 
-#### Download VMware and the Ubuntu ISO File
+#### Download qemu and the Ubuntu ISO File
 
   * Get and install QEMU and virt-manager
   ```bash
