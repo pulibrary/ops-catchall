@@ -33,6 +33,6 @@ Notes: Some machines will fail for now
 
   ```bash
   ssh -J pulsys@bastion-prod.pulcloud.io pulsys@10.244.0.3
-  sudo su - deploy
+  sudo su - dspace
   dsbounce
   ```
