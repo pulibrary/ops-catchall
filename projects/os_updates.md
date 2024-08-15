@@ -12,6 +12,11 @@
 
 4. Click Launch. You can then click the Jobs tab in the left-hand navigation to make sure the job has launched and is running. 
 
+##### Notes: Some machines will fail for now
+- Anything with pulcloud.io
+- Machines still on Bionic and not upgraded to Jammy
+- Any client that connects to mysql and postgresql
+
 ##### In case you need to run this via the command line, follow these steps: 
 1. Open a Terminal window to princeton_ansible repo
 2. Log in to VPN and lastpass
@@ -20,11 +25,6 @@
 
 4. Open a new Terminal window 
 5. Run `caffeinate -d -t 10800` to keep your session active for 3 hours (this is an example; can set any time you'd like)
-
-Notes: Some machines will fail for now
-- Anything with pulcloud.io
-- Machines still on Bionic and not upgraded to Jammy
-- Any client that connects to mysql and postgresql
 
 ##### To run security_theater from Ansible Tower on qa and production: 
 
@@ -48,6 +48,10 @@ When qa finishes running, repeat the above steps and change the envinroment to p
 `ansible-playbook playbooks/utils/security_theater.yml --limit qa`
   - For prouction: 
   `ansible-playbook playbooks/utils/security_theater.yml --limit production`
+
+4. Open a new Terminal window
+
+5. Run caffeinate -d -t 10800 to keep your session active for 3 hours (this is an example; can set any time you'd like)
 
 ### On Tuesdays, run the os_updates playbook on qa and production machines and security_theater on staging machines
 
@@ -86,10 +90,16 @@ When qa finishes running, repeat the above steps and change the envinroment to p
 
 ##### In case you need to run this via the command line, follow these steps: 
 1. Open a Terminal window to princeton_ansible repo
+
 2. Log in to VPN and lastpass
+
 3. Run the following playbook: 
   - For qa: 
 `ansible-playbook playbooks/utils/security_theater.yml --limit staging`
+
+4. Open a new Terminal window
+
+5. Run caffeinate -d -t 10800 to keep your session active for 3 hours (this is an example; can set any time you'd like)
 
 ### Troubleshooting
 
