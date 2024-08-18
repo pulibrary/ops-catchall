@@ -84,10 +84,6 @@ When your machine reboots you can now create a bare minimal installation.
     Select vim.basic in the resulting screen
   * Edit the sudoers file by running the following command: `sudo visudo`
     * this will launch the vi editor. Find the line that has `%sudo  ALL=(ALL) ALL` and modify it to look like this `%sudo ALL=(ALL) NOPASSWD:ALL` 
-  * Go to LastPass and find the password for the pulsys user and change it using the following as the `pulsys` user. 
-    * passwd
-    * You will be prompted for the 1234temp (current password)
-    * Enter the password from lastpass or create a new one and save it on lastpass
   * Restrict access to just the pulsys user with the following.
     * Open the `/etc/ssh/sshd_config` file and add the following line at the end of the file. `AllowUsers pulsys`
     * Add the [Ansible Tower Key](https://github.com/pulibrary/princeton_ansible/blob/main/keys/TowerKey.pub)
@@ -176,9 +172,13 @@ The qemu image will need a different network driver when mounted on a ESXI host.
     ```
   * Enable the service to it runs at boot with:
     ```bash
-    sudo systemctl enable regenarate-ssh-keys.service
+    sudo systemctl enable regenerate-ssh-keys.service
     ```
   * Clean up apt with the following command `sudo apt clean`
+  * Go to LastPass and find the password for the pulsys user and change it using the following as the `pulsys` user. 
+    * passwd
+    * You will be prompted for the 1234temp (current password)
+    * Enter the password from lastpass or create a new one and save it on lastpass
   * shutdown your VM with `sudo shutdown -h now`
 
 #### Export your VM
