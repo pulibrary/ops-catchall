@@ -11,17 +11,20 @@ You will need to make sure you are on the princeton network and connected using 
 
 #### Deploy OVF Template
 
-* From a separate tab or browser Download and save the OVF template files from [Google Drive](https://drive.google.com/drive/folders/0B0s-Lc6vvmqqTF9yaklHWW1RdmM?resourcekey=0-tdIXAZtmu1klMhHUMSE00g)
+* From a separate tab or browser Download and save the vmdk file from [Google Drive](https://drive.google.com/drive/folders/0B0s-Lc6vvmqqTF9yaklHWW1RdmM?resourcekey=0-tdIXAZtmu1klMhHUMSE00g)
 * On Staging Select *Library-Dev* and on Prod Select either *Library* or *Diglib*
 * On Staging Select the the *VMCluster* **Actions** and on Prod Select either *Library* or *Diglib* **Actions** with three ellipses at the top right hand panel
-* You will select the `Deploy OVF Template...` which will launch a Wizard.
-* Select the `Local file` radio button
-* Select `Upload Files` option and navigate to where you have the 3 Files you saved above and press `NEXT`
-* Give the `Virtual machine name:` a name (ideal that matches DNS)
-* From `Select a location for the virtual machine` place the virtual machine in `Discovered virtual machine` for staging or `drdsetvms` on Production and press `NEXT`
-* From `Select the destination compute resource for this operation` expand the `VMCluster` and select one of the hosts and press `NEXT`
-* Select one of the **none host** storage locations (they will usually have SAN on them and not a host name). The preference is to always `thin provision` the `Select virtual disk format` from the drop down and press `NEXT`
-* When Selecting the Network select `Virtual Machine Network` except in cases where a new VM will be in the private network and press `NEXT`
+* You will select the `Datastores` Tab.
+  * Make a note of which of the datastore you pick. You will need this later
+  * Upload the downloaded vmdk file from the step earlier. (You may get a prompt about invalid certificates. Just click on this)
+* From the Actions menu select the `New Virtual Machine` option which will launch a Wizard.
+* Give the `Virtual machine name:` a name (the format of YYYY-ubuntu-nickname-season-template) in the `Select a name and folder` and place the virtual machine in `Discovered virtual machine` and press `NEXT`
+* From `Select a compute resource` place the virtual machine in `VMCluster` and press `NEXT`
+* Select the same host storage from the step earlier and press `NEXT`
+* From `Select compatibility` choose `ESXi 7.0 U2 and later` and press `NEXT`
+* From `Select a guest OS` choose `Linux` and `Ubuntu Linux (64-bit)` and press `NEXT`
+* From `Customize Hardware` Delete `New Hard Disk` and select `ADD NEW DEVICE` and pick Add and Existing Drive. Locate where you uploaded the 2024-ubuntu vmdk file. Change the memory to 8GB and press `NEXT`
+* Select the same host storage from the step earlier and press `NEXT`
 * Press `Finish`
 
 #### Initial VM Configuration
