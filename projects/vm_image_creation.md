@@ -13,14 +13,22 @@
   ```bash
   sudo apt -y install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
   ```
-  * Download the [Ubuntu LTS](https://ubuntu.com/download/server) iso file
+  * Download the [Ubuntu LTS](https://ubuntu.com/download/server) iso file (Use Jammy (22.04))
 
 #### Create a Linux Virtual Machine
 
   * Launch the virt-manager with `sudo virt-manager` on your system. Click on the **Create a New Virtual Machine** and Follow the Wizard.
     * The New Virtual Machine Wizard window will launch. Choose **Local install media (ISO image or CDROM)** option.
-    * Select the Ubuntu ISO from above.
+    * Select the Ubuntu ISO from the step above.
     * Configure memory and CPU settings.
+      * 2 CPUs and 8196 MB
+      * 30.0 GiB (makes our image free on AWS and Google Cloud)
+    * Select Customize *Before Installation*
+      * Remove Sound
+      * Remove Tablet
+      * Remove USB Redirector{1,2}
+      * Change VirtIO Disk 1 to use *VirtIO Driver*
+    * Select *Begin Installation*
   * Complete the Ubuntu installation with the steps below
 
 #### Install Ubuntu on the Virtual Machine
@@ -53,9 +61,20 @@ The newly created Ubuntu virtual machine will appear in the virtual machine list
 When your machine reboots you can now create a bare minimal installation.
 
   * From your terminal log into your VM with `ssh pulsys@<the IP address you wrote down>`
-    * if you forgot to record your IP address you can connect from the VMWare Workstation application (it is a clunky UI). Once you are logged in as the pulsys user type `ip a` and go back to using the terminal app.
+    * if you forgot to record your IP address you can find it from the virt-manager application (it is a clunky UI).
+    * you can also use `ip a` to find the results from the virb0 device 
   * Update your VM with `sudo apt -y update && sudo apt -y upgrade`
   * Install VMWare tools with `sudo apt -y install open-vm-tools`
+  * Install fail2ban with `sudo apt -y install fail2ban`
+    * Configure fail2ban for ssh with the following config at `/etc/fail2ban/jail.d/jail_ssh.local.conf`
+    ```ini
+
+    [sshd]
+    filter = sshd
+    action = iptables-multiport
+    logpath = /var/log/auth.log
+    maxretry = 5
+    ```
   * Install vim and make it the default text editor with the following steps:
     ```bash
     sudo apt -y install vim
@@ -81,6 +100,10 @@ When your machine reboots you can now create a bare minimal installation.
       # Keys for Operations Staff
       # Keys for acozine
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJfzzsSCWft0+Y5BBEgczdCQt9SIdU2Zft0aPiR3PRSR
+      # Keys for beck-davis
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBItBQDPb3UWItqYUtURAlNjwtFyk5Hz7WYOLWGkfxUk
+      # Keys for dphillips-39.keys
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIjsG/xtqi+W0qToHig+zuGKbPXQCj+ngXFj+SvzMAdD
       # Keys for gpmenos
 
       # Keys for jkazmier-PUL
@@ -105,22 +128,6 @@ The qemu image will need a different network driver when mounted on a ESXI host.
 
 #### Strip out unique data
 
-  * Stop the services for cleanup with `sudo systemctl stop rsyslog`
-  * As root cleanup up the audit logs with the following:
-    ```bash
-    sudo su
-    if [ -f /var/log/wtmp ]; then
-        truncate -s0 /var/log/wtmp
-    fi
-    if [ -f /var/log/lastlog ]; then
-        truncate -s0 /var/log/lastlog
-    fi
-    ```
-  * Cleanup the tmp directories with the following:
-    ```bash
-    sudo su
-    rm -rf /tmp/*
-    rm -rf /var/tmp/*
     ```
   * Cleanup current ssh-keys
     ```bash
