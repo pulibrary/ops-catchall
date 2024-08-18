@@ -128,7 +128,6 @@ The qemu image will need a different network driver when mounted on a ESXI host.
 
 #### Strip out unique data
 
-    ```
   * Cleanup current ssh-keys
     ```bash
     sudo su
