@@ -129,37 +129,55 @@ The qemu image will need a different network driver when mounted on a ESXI host.
 #### Strip out unique data
 
   * Cleanup current ssh-keys
+    * Create a file names `regenerate_ssh_keys.sh`
+    * Add the following to the file
     ```bash
-    sudo su
-    rm -f /etc/ssh/ssh_host_*
-    ```
-  * Check for ssh keys on reboot...regenerate if necessary
-    ```bash
-    sudo su
-    cat << 'EOL' | sudo tee /etc/rc.local
-    #!/bin/sh -e
-    #
-    # remove all original files
+    #!/usr/bin/bash
+
+    # Script to regenerate SSH keys on first boot
+
+    # Define paths to the ssh key files
+    SSH_KEYS_PATH="/etc/ssh"
+
+    echo "Regenerating SSH keys..."
+
+    # Remove old SSH keys
     rm -f $SSH_KEYS_PATH/ssh_host_*
-    # rc.local
-    # check for SSH keys and create if not present
-    test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
-    exit 0
-    EOL
+
+    # Regenerate new SSH keys
+    dpkg-reconfigure openssh-server
+
+    echo "SSH keys regenerated."
+
+    # Disable this script after running once
+    systemctl disable regenerate-ssh-keys.service
+
     ```
-  * Make sure the script is executable with:
+  * Make the script executable and move it to `/usr/local/sbin/`
     ```bash
-    sudo su
-    chmod +x /etc/rc.local
+    chmod a+x regenerate_ssh_keys.sh
+    sudo mv regenerate_ssh_keys.sh /usr/local/sbin/regenerate_ssh_keys.sh
     ```
-  * Clean up apt with the following command `apt clean`
-  * Clean up the root users history with the following:
+  * Create a systemd service file at `/etc/systemd/system/regenerate-ssh-keys.service` with the following:
+    ```ini
+    [Unit]
+    Description=Regenerate SSH keys on first boot
+    After=network.target
+
+    [Service]
+    Type=oneshot
+    ExecStart=/usr/local/sbin/regenerate_ssh_keys.sh
+    RemainAfterExit=yes
+
+    [Install]
+    WantedBy=multi-user.target
+
+    ```
+  * Enable the service to it runs at boot with:
     ```bash
-    sudo su
-    cat /dev/null > ~/.bash_history && history -c
-    history -w
+    sudo systemctl enable regenarate-ssh-keys.service
     ```
-    * repeat the same steps above for the pulsys user
+  * Clean up apt with the following command `sudo apt clean`
   * shutdown your VM with `sudo shutdown -h now`
 
 #### Export your VM
