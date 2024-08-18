@@ -23,6 +23,7 @@
     * Configure memory and CPU settings.
       * 2 CPUs and 8196 MB
       * 30.0 GiB (makes our image free on AWS and Google Cloud)
+    * Name will be 2024_jammy_{season}
     * Select Customize *Before Installation*
       * Remove Sound
       * Remove Tablet
@@ -182,15 +183,13 @@ The qemu image will need a different network driver when mounted on a ESXI host.
 
 #### Export your VM
 
-  * With your Virtual Machine powered select the **Edit virtual machine settings menu**
-  * In the new Hardware window select **CD/DVD (SATA)** and change the Connection from **Use ISO image** to **Use a physical drive** then click **Save**
-  * You can now export image by select the **File** Menu and **Export to OVF** (This will take a little while). Create a new directory to place all the image files together.
+  * With your Virtual Machine powered select the **File Menu**
+    * Select File -> View Manager (You should see your Ubuntu VM)
+    * Select View Machine Details and perform any additional edits
+  * You can now copy the image by running the following:
+    ```bash
+    sudo qemu-img convert -f qcow2 -O vmdk /var/lib/libvirt/images/2024_jammy_<season>.qcow2 /home/<username>/Desktop/2024_jammy_<season>.vmdk
+    ```
   * When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
-    * When creating a cloud image an additional step will be required to convert this file to the ova format. The following step will accomplish this.
-      ```bash
-      ovftool pul_image.ovf pul_image.ova
-      ```
-      The step above must be run from the directory that contains all three files from the export process
-
   * You can now follow the [VSphere Steps](vsphere_hypervisor.md) to import
       
