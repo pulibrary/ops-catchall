@@ -19,13 +19,15 @@ You will need to make sure you are on the princeton network and connected using 
   * Upload the downloaded vmdk file from the step earlier. (You may get a prompt about invalid certificates. Just click on this)
 * From the Actions menu select the `New Virtual Machine` option which will launch a Wizard.
 * Give the `Virtual machine name:` a name (the format of YYYY-ubuntu-nickname-season-template) in the `Select a name and folder` and place the virtual machine in `Discovered virtual machine` and press `NEXT`
-* From `Select a compute resource` place the virtual machine in `VMCluster` and press `NEXT`
-* Select the same host storage from the step earlier and press `NEXT`
+* From `Select a compute resource` place the virtual machine in one of the hosts `VMCluster` and press `NEXT`
+* From `Select storage` pick the storage from the step earlier and press `NEXT`
 * From `Select compatibility` choose `ESXi 7.0 U2 and later` and press `NEXT`
 * From `Select a guest OS` choose `Linux` and `Ubuntu Linux (64-bit)` and press `NEXT`
-* From `Customize Hardware` Delete `New Hard Disk` and select `ADD NEW DEVICE` and pick Add and Existing Drive. Locate where you uploaded the 2024-ubuntu vmdk file. Change the memory to 8GB and press `NEXT`
-* Select the same host storage from the step earlier and press `NEXT`
+* From `Customize Hardware` Delete `New Hard Disk` and select `ADD NEW DEVICE` and pick add `Add Existing Drive`. Locate where you uploaded the 2024-ubuntu vmdk file.
+  * Expand the new drive you just add and from `Virtual Device Node` select `IDE 0`
+* Change the memory to 8GB and press `NEXT`
 * Press `Finish`
+* Find your New `2024-ubuntu-<season>-template` and Select the `Actions` menu. Find the Template Submenu and Convert to Template
 
 #### Initial VM Configuration
 
