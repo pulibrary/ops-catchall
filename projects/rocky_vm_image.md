@@ -124,4 +124,56 @@ When your machine reboots you can now create a bare minimal installation.
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdddOwvM3HsvW3sC0PPbP4Pq7q1AQ0anINFtgvcOsqI
       # Keys for VickieKarasic
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKDUPnOTVebrlXOOu7t1P2Wv+SB6rMC4jOEtqsaR8MVZ
-      ```
+      ``` #### Strip out unique data
+
+  * Cleanup current ssh-keys
+    * Create a file names `regenerate_ssh_keys.sh`
+    * Add the following to the file
+    ```bash
+    #!/usr/bin/bash
+
+    # Script to regenerate SSH keys on first boot
+
+    # Define paths to the ssh key files
+    SSH_KEYS_PATH="/etc/ssh"
+
+    echo "Regenerating SSH keys..."
+
+    # Remove old SSH keys
+    rm -f $SSH_KEYS_PATH/ssh_host_*
+
+    # Regenerate new SSH keys
+    ssh-keygen -A
+
+    echo "SSH keys regenerated."
+
+    systemctl restart sshd
+
+    # Disable this script after running once
+    systemctl disable regenerate-ssh-keys.service
+
+    ```
+  * Make the script executable and move it to `/usr/local/sbin/`
+    ```bash
+    chmod a+x regenerate_ssh_keys.sh
+    sudo mv regenerate_ssh_keys.sh /etc/rc.d/rc.local
+    ```
+  * Go to LastPass and find the password for the pulsys user and change it using the following as the `pulsys` user. 
+    * passwd
+    * You will be prompted for the 1234temp (current password)
+    * Enter the password from lastpass or create a new one and save it on lastpass
+  * shutdown your VM with `sudo shutdown -h now`
+
+#### Export your VM
+
+  * With your Virtual Machine powered select the **File Menu**
+    * Select File -> View Manager (You should see your Rocky VM)
+    * Select View Machine Details and perform any additional edits
+  * You can now copy the image by running the following:
+    ```bash
+    sudo qemu-img convert -f qcow2 -O vmdk -o subformat=streamOptimized /var/lib/libvirt/images/2024_rocky_<season>.qcow2 /home/<username>/Desktop/2024_rocky_<season>.vmdk
+    ```
+  * When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
+  * You can now follow the [VSphere Steps](vsphere_hypervisor.md) to import
+      
+
