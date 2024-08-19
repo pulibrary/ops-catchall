@@ -2,7 +2,7 @@
 
 **Don't Panic!**
 
-#### Prerequisites to Install Ubuntu on VMware
+#### Prerequisites to Install Ubuntu on QEMU
 
   * You will need an Intel amd64 based hardware for the rest of this document.
   * Install [Ubuntu Desktop](https://ubuntu.com/download/desktop)
