@@ -188,7 +188,7 @@ The qemu image will need a different network driver when mounted on a ESXI host.
     * Select View Machine Details and perform any additional edits
   * You can now copy the image by running the following:
     ```bash
-    sudo qemu-img convert -f qcow2 -O vmdk /var/lib/libvirt/images/2024_jammy_<season>.qcow2 /home/<username>/Desktop/2024_jammy_<season>.vmdk
+    sudo qemu-img convert -f qcow2 -O vmdk -o subformat=streamOptimized /var/lib/libvirt/images/2024_jammy_<season>.qcow2 /home/<username>/Desktop/2024_jammy_<season>.vmdk
     ```
   * When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
   * You can now follow the [VSphere Steps](vsphere_hypervisor.md) to import
