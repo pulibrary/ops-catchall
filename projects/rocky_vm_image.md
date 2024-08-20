@@ -170,7 +170,7 @@ When your machine reboots you can now create a bare minimal installation.
     * Select View Machine Details and perform any additional edits
   * You can now copy the image by running the following:
     ```bash
-    sudo qemu-img convert -f qcow2 -O vmdk -o subformat=streamOptimized /var/lib/libvirt/images/2024_rocky_<season>.qcow2 /home/<username>/Desktop/2024_rocky_<season>.vmdk
+    sudo qemu-img convert -f qcow2 -O vmdk /var/lib/libvirt/images/2024_rocky_<season>.qcow2 /home/<username>/Desktop/2024_rocky_<season>.vmdk
     ```
   * convert the qcow2 file to a vsphere compatible vmdk by creating the `2024_rocky_<season>.vmx` file
 
