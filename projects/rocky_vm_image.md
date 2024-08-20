@@ -125,7 +125,8 @@ When your machine reboots you can now create a bare minimal installation.
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdddOwvM3HsvW3sC0PPbP4Pq7q1AQ0anINFtgvcOsqI
       # Keys for VickieKarasic
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKDUPnOTVebrlXOOu7t1P2Wv+SB6rMC4jOEtqsaR8MVZ
-      ``` #### Strip out unique data
+      ```
+#### Strip out unique data
 
   * Cleanup current ssh-keys
     * Create a file names `regenerate_ssh_keys.sh`
