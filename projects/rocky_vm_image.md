@@ -68,6 +68,7 @@ When your machine reboots you can now create a bare minimal installation.
   * From your terminal log into your VM with `ssh pulsys@<the IP address you wrote down>`
   * Update your VM with `sudo dnf -y update`
   * Install VMWare tools with `sudo dnf -y install open-vm-tools`
+  * Install perl and dhclient  with `sudo dnf -y install dhclient perl`
   * Install fail2ban with `sudo dnf install epel-release -y && sudo dnf -y install fail2ban`
     * Configure fail2ban for ssh with the following config at `/etc/fail2ban/jail.d/jail_ssh.local.conf`
     ```ini
