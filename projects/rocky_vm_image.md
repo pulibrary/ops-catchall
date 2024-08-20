@@ -129,7 +129,7 @@ When your machine reboots you can now create a bare minimal installation.
 #### Strip out unique data
 
   * Cleanup current ssh-keys
-    * Create a file names `regenerate_ssh_keys.sh`
+    * Create a file name `regenerate_ssh_keys.sh`
     * Add the following to the file
     ```bash
     #!/usr/bin/bash
