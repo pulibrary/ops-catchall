@@ -129,7 +129,7 @@ When your machine reboots you can now create a bare minimal installation.
 #### Strip out unique data
 
   * Cleanup current ssh-keys
-    * Create a file name `regenerate_ssh_keys.sh`
+    * Create a file named `regenerate_ssh_keys.sh`
     * Add the following to the file
     ```bash
     #!/usr/bin/bash
@@ -151,11 +151,8 @@ When your machine reboots you can now create a bare minimal installation.
 
     systemctl restart sshd
 
-    # Disable this script after running once
-    systemctl disable regenerate-ssh-keys.service
-
     ```
-  * Make the script executable and move it to `/usr/local/sbin/`
+  * Make the script executable and move it to `/etc/rc.d/`
     ```bash
     chmod a+x regenerate_ssh_keys.sh
     sudo mv regenerate_ssh_keys.sh /etc/rc.d/rc.local
