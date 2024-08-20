@@ -6,6 +6,7 @@
 
   * You will need an Intel amd64 based hardware for the rest of this document.
   * Install [Ubuntu Desktop](https://ubuntu.com/download/desktop)
+  * Download [VMware's Ovftool](https://github.com/rgl/ovftool-binaries) and add it to your path. (e.g ~/.local/)
 
 #### Download qemu and the Ubuntu ISO File
 
@@ -173,6 +174,22 @@ When your machine reboots you can now create a bare minimal installation.
     ```bash
     sudo qemu-img convert -f qcow2 -O vmdk -o subformat=streamOptimized /var/lib/libvirt/images/2024_rocky_<season>.qcow2 /home/<username>/Desktop/2024_rocky_<season>.vmdk
     ```
+  * convert the qcow2 file to a vsphere compatible vmdk by creating the `2024_rocky_<season>.vmx` file
+
+    ```file
+    .encoding = "UTF-8"
+    config.version = "8"
+    virtualHW.version = "10"
+    memsize = "8196"
+    numvcpus = "2"
+    scsi0.present = "TRUE"
+    scsi0:0.present = "TRUE"
+    scsi0:0.fileName = "2024_rocky_<season>.vmdk"
+    ethernet0.present = "TRUE"
+    ethernet0.connectionType = "nat"
+    guestOS = "rhel9_64Guest"
+    ```
+  * make sure the file is saved to your Desktop directory then run `ovftool ~/Desktop/2024_rocky_<season>.vmx ~/2024_rocky_<season>.vmdk`
   * When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
   * You can now follow the [VSphere Steps](vsphere_hypervisor.md) to import
       
