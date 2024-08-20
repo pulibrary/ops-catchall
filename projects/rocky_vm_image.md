@@ -187,8 +187,8 @@ When your machine reboots you can now create a bare minimal installation.
     ethernet0.connectionType = "nat"
     guestOS = "rhel9_64Guest"
     ```
-  * make sure the file is saved to your Desktop directory then run `ovftool ~/Desktop/2024_rocky_<season>.vmx ~/2024_rocky_<season>.vmdk`
-  * When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
+  * make sure the file is saved to your Desktop directory then run `ovftool ~/Desktop/2024_rocky_<season>.vmx ~/2024_rocky_<season>.ovf`
+  * When the export is complete upload your three new image files to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
   * You can now follow the [VSphere Steps](vsphere_hypervisor.md) to import
       
 
