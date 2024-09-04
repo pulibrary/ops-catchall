@@ -122,7 +122,7 @@ When your machine reboots you can now create a bare minimal installation.
       ```
 #### Modify the network interface
 
-The qemu image will need a different network driver when mounted on a ESXI host. Modify the netplan device with the following `sudo vim /etc/netplan/00-installer-config.yaml` and replace the `ensp1*` with `ens192` that the ESXi expects. Close and save the file
+The qemu image will need a different network driver when mounted on a ESXI host. Modify the netplan device with the following `sudo vim /etc/netplan/00-installer-config.yaml` and replace the `ensp1*` with `ens32` that the ESXi expects. Close and save the file
 
 #### Strip out unique data
 
@@ -191,12 +191,12 @@ The qemu image will need a different network driver when mounted on a ESXI host.
     ```bash
     sudo qemu-img convert -f qcow2 -O vmdk -o subformat=streamOptimized /var/lib/libvirt/images/2024_jammy_<season>.qcow2 /home/<username>/Desktop/2024_jammy_<season>.vmdk
     ```
-  * convert the qcow2 file to a vsphere compatible vmdk by creating the `2024_rocky_<season>.vmx` file
+  * convert the qcow2 file to a vsphere compatible vmdk by creating the `2024_jammy_<season>.vmx` file
 
     ```file
     .encoding = "UTF-8"
-    config.version = "8"
-    virtualHW.version = "10"
+    config.version = "11"
+    virtualHW.version = "17"
     memsize = "8196"
     numvcpus = "2"
     scsi0.present = "TRUE"
@@ -204,7 +204,7 @@ The qemu image will need a different network driver when mounted on a ESXI host.
     scsi0:0.fileName = "2024_jammy_<season>.vmdk"
     ethernet0.present = "TRUE"
     ethernet0.connectionType = "nat"
-    guestOS = "ubuntu_64Guest"
+    guestOS = "ubuntu64Guest"
     ```
   * make sure the file is saved to your Desktop directory then run `ovftool ~/Desktop/2024_jammy_<season>.vmx ~/2024_jammy_<season>.ovf`
   * When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
