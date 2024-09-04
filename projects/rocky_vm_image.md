@@ -43,8 +43,8 @@ The newly created Rocky virtual machine will appear in the virtual machine list 
     * On the `Device Selection` menu select the 30GiB destination, 
     * Select the `Custom` radio button to customize your installer.
     * Create a `boot` mount point of 1GiB
-    * Create a `swap` partition of 2GiB
-    * Create `/` mount point of 29GiB then click **Done**
+    * Create a `swap` partition of 4GiB
+    * Create `/` mount point of 25GiB then click **Done**
       * Accept the changes you made
   * Click on the **Software Selection** button.
     * It defaults to *Server with GUI* change that to **Server**, then click **Done**
