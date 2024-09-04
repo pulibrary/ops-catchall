@@ -23,8 +23,7 @@ You will need to make sure you are on the princeton network and connected using 
 * Select one of the **none host** storage locations (they will usually have SAN on them and not a host name). The preference is to always `thin provision` the `Select virtual disk format` from the drop down and press `NEXT`
 * When Selecting the Network select `Virtual Machine Network` network and press `NEXT`
 * Press `Finish`
-* Find the new YYYY-{jammy,rocky}-<season>-template virtual machine
-  * Select `Actions` -> Template -> Convert to Template
+* Your new `2024-{ubuntu,rocky}-<season>-template` is now running on VMware as a VM. Make it a template so we can create VMs based on it. Select the `Actions` menu. Find the Template Submenu and select Convert to Template.
 
 #### Initial VM Configuration
 
