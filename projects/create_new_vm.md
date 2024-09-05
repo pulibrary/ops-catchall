@@ -54,3 +54,24 @@ Our VMS will be using 14GB or the allocated thin provisioned 28GB. The following
 ## Add your host to the prancible inventory
 
 Create a new branch and make a PR to add VM to princeton_ansible/inventory/all_projects/[project_name]
+
+## Add users to your VM
+
+On our Jammy templates, the pulsys user is added automatically (for non-Operations folks, you will need to run the pulsys playbook to add other IT members as pulsys). There are some cases where you may want to add users other than pulsys to be able to SSH into your VM. To do that, follow these steps: 
+
+1. Sign in to your VM as the pulsys user, i.e. 
+```ssh pulsys@sandbox-vkarasic.lib.princeton.edu```
+
+2. Replace username with the name of the user you are adding: ```sudo useradd -s /usr/bin/bash -d /home/username -m -G sudo username```
+
+3. ```sudo su - username```
+
+4. Copy the URL for your GitHub keys and enter this command, pasting in the URL you just copied: 
+```wget https://github.com/YourUsername.keys```
+
+5. Make a new directory for the new .ssh keys and change the permissions so that the owner can read, write, and execute: 
+```mkdir .ssh```
+```chmod 700 .ssh```
+
+6. Create a new file in your directory for authorized_keys: 
+```touch .ssh/authorized_keys```
