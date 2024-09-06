@@ -73,5 +73,17 @@ On our Jammy templates, the pulsys user is added automatically (for non-Operatio
 ```mkdir .ssh```
 ```chmod 700 .ssh```
 
-6. Create a new file in your directory for authorized_keys: 
+6. Create a new file in your directory for authorized_keys, and then put your keys in that file: 
 ```touch .ssh/authorized_keys```
+```cat YourUsername.keys >> .ssh/authorized_keys```
+
+7. Change the permissions on the authorized_keys file so that the owner can read and write: 
+```chmod 600 .ssh/authorized_keys```
+
+8. Add the new user into the sshd_config file as an allowed user (in the config file, AllowUsers should be around line 123):
+```sudo vim /etc/ssh/sshd_config```
+
+9. Restart sshd for your changes to take effect: 
+```sudo systemctl restart sshd```
+
+10. Exit your sandbox as the pulsys user and ssh back in as the new user name you just added. 
