@@ -8,12 +8,12 @@
     1. Name is same as original VM
     2. On dev, choose Library-Dev -> Discovered virtual machine
     3. On prod, choose Library -> dev-rebootable-vms
-    4. Put on same compute resource as original VM
+    4. Choose a compute resource* (any machine that does not currently have an issue notification on it will be fine).* 
     5. Put on storage that has the most space free
     6. From "Select virtual disk format" drop-down, choose Thin Provision
     7. Check boxes: "Customize this virtual machine's hardware" and "Power on virtual machine after creation"
-    8. Choose client device from CD/DVD drive 1 drop-down
-    9. Expand Network adapter 1, from the automatic MAC address copy and paste all the  characters. (You will need these for the network registration below)
+    8. Expand "Network adapter 1," and from the automatic MAC address, copy and paste all the characters. (You will need these for the network registration below)
+    *Note: Machines with "a" next to the name are in Forrestal; machines with "b" next to the name are in New South.
 
 ## Register the Host on the Network
 
