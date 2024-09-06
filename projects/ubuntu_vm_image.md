@@ -100,7 +100,7 @@ When your machine reboots you can now create a bare minimal installation.
 
 #### Modify the network interface
 
-The qemu image will need a different network driver when mounted on a ESXI host. Modify the netplan device with the following `sudo vim /etc/netplan/00-installer-config.yaml` and replace the `ensp1*` with `ens32` that the ESXi expects. Close and save the file
+The qemu image will need a different network driver when mounted on a ESXI host. Modify the netplan device with the following `sudo vim /etc/netplan/00-installer-config.yaml` and replace the `ensp1*` with `ens192` that the ESXi expects. Close and save the file
 
 #### Strip out unique data
 
