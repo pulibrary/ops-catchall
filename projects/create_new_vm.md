@@ -57,33 +57,36 @@ Create a new branch and make a PR to add VM to princeton_ansible/inventory/all_p
 
 ## Add users to your VM
 
-On our Jammy templates, the pulsys user is added automatically (for non-Operations folks, you will need to run the pulsys playbook to add other IT members as pulsys). There are some cases where you may want to add users other than pulsys to be able to SSH into your VM. To do that, follow these steps: 
+On our Jammy templates, the pulsys user is added automatically (for non-Operations folks, you will need to run the [update pulsys user keys playbook](https://ansible-tower.princeton.edu/#/templates/job_template/17/details) to add other IT members as pulsys users). There are some cases where you may want to add users other than pulsys to be able to SSH into your VM. To do that, follow these steps: 
 
 1. Sign in to your VM as the pulsys user, i.e. 
-```ssh pulsys@sandbox-vkarasic.lib.princeton.edu```
+- ```ssh pulsys@sandbox-yoursandbox.lib.princeton.edu```
 
-2. Replace username with the name of the user you are adding: ```sudo useradd -s /usr/bin/bash -d /home/username -m -G sudo username```
+2. Replace "username" in the following command with the name of the user you are adding: 
+- ```sudo useradd -s /usr/bin/bash -d /home/username -m -G sudo username```
 
-3. ```sudo su - username```
+3. Again, replace "username" in the following command with the name of the user you are adding: 
+- ```sudo su - username```
 
 4. Copy the URL for your GitHub keys and enter this command, pasting in the URL you just copied: 
-```wget https://github.com/YourUsername.keys```
+
+- ```wget https://github.com/YourUsername.keys```
 
 5. Make a new directory for the new .ssh keys and change the permissions so that the owner can read, write, and execute: 
-```mkdir .ssh```
-```chmod 700 .ssh```
+- ```mkdir .ssh```
+- ```chmod 700 .ssh```
 
 6. Create a new file in your directory for authorized_keys, and then put your keys in that file: 
-```touch .ssh/authorized_keys```
-```cat YourUsername.keys >> .ssh/authorized_keys```
+- ```touch .ssh/authorized_keys```
+- ```cat YourUsername.keys >> .ssh/authorized_keys```
 
 7. Change the permissions on the authorized_keys file so that the owner can read and write: 
-```chmod 600 .ssh/authorized_keys```
+- ```chmod 600 .ssh/authorized_keys```
 
 8. Add the new user into the sshd_config file as an allowed user (in the config file, AllowUsers should be around line 123):
-```sudo vim /etc/ssh/sshd_config```
+- ```sudo vim /etc/ssh/sshd_config```
 
 9. Restart sshd for your changes to take effect: 
-```sudo systemctl restart sshd```
+- ```sudo systemctl restart sshd```
 
-10. Exit your sandbox as the pulsys user and ssh back in as the new user name you just added. 
+10. Exit your sandbox as the pulsys user and ssh back in as the new user you just added. 
