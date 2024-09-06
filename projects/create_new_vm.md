@@ -68,7 +68,7 @@ On our Jammy templates, the pulsys user is added automatically (for non-Operatio
 3. Again, replace "username" in the following command with the name of the user you are adding: 
 - ```sudo su - username```
 
-4. Copy the URL for your GitHub keys and enter this command, pasting in the URL you just copied: 
+4. Enter the URL for your GitHub public keys through this command (in the following URL, replace "YourUsername" with your GitHub username; the rest of the URL should remain the same):
 
 - ```wget https://github.com/YourUsername.keys```
 
