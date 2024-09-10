@@ -81,6 +81,7 @@ When your machine reboots you can now create a bare minimal installation.
     maxretry = 5
 
     ```
+  * Update Core ReadyBuilder with `sudo /usr/bin/crb enable`
   * Edit the sudoers file by running the following command: `sudo visudo`
     * this will launch the vi editor. Find the line that has `#%wheel  ALL=(ALL) NOPASSWD:ALL` and uncomment it to look like this `%wheel ALL=(ALL) NOPASSWD:ALL` 
     * comment out the line with `%wheel ALL=(ALL) ALL`
