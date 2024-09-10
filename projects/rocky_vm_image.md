@@ -151,6 +151,7 @@ When your machine reboots you can now create a bare minimal installation.
     [ipv6]
     method=ignore
     ```
+  * Give this file the following permissions `sudo chmod 600 /etc/NetworkManager/system-connections/ens192.nmconnection`
   * Remove the network connection for the virtual machine with `sudo rm /etc/NetworkManager/system-connections/enp1s0.nmconnection`
   * Go to LastPass and find the password for the pulsys user and change it using the following as the `pulsys` user. 
     * passwd
