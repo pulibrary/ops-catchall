@@ -138,13 +138,21 @@ When your machine reboots you can now create a bare minimal installation.
     chmod a+x regenerate_ssh_keys.sh
     sudo mv regenerate_ssh_keys.sh /etc/rc.d/rc.local
     ```
-  * Configure the network interface. You will need add the following configuration to the resulting Virtual Machine so it will boot on an ESXi host. Create a file here with `sudo vim /etc/sysconfig/network-scripts/ifcfg-ens192`
+  * Configure the network interface. You will need add the following configuration to the resulting Virtual Machine so it will boot on an ESXi host. Create a file here with `sudo vim /etc/NetworkManager/system-connections/ens192.nmconnection`
     ```file
-    DEVICE=ens192
-    BOOTPROTO=dhcp
-    ONBOOT=yes
-
+    [connection]
+    id=ens192
+    type=ethernet
+    interface-name=ens192
+    [match]
+    name=ens192
+    [ethernet]
+    [ipv4]
+    method=auto
+    [ipv6]
+    method=ignore
     ```
+  * Remove the network connection for the virtual machine with `sudo rm /etc/NetworkManager/system-connections/enp1s0.nmconnection`
   * Go to LastPass and find the password for the pulsys user and change it using the following as the `pulsys` user. 
     * passwd
     * You will be prompted for the 1234temp (current password)
