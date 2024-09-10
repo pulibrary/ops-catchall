@@ -144,9 +144,7 @@ When your machine reboots you can now create a bare minimal installation.
     id=ens192
     type=ethernet
     interface-name=ens192
-    [match]
-    name=ens192
-    [ethernet]
+
     [ipv4]
     method=auto
     [ipv6]
