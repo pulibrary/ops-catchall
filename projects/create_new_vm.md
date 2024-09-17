@@ -5,7 +5,7 @@
 
 - Search for "template" and open the latest Jammy Jellyfish template (e.g. "jammy_season_year")
 - Click on Actions and then New VM from This Template
-    1. Name is same as original VM
+    1. If replacing a VM, name is same as original VM. If creating a new VM, enter the FQDN (fully qualified domain name) indicated on the ticket or by the requester. 
     2. On dev, choose Library-Dev -> Discovered virtual machine
     3. On prod, choose Library -> dev-rebootable-vms
     4. Choose a compute resource* (any machine that does not currently have an issue notification on it will be fine).* 
