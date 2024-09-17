@@ -23,7 +23,8 @@
     - For Ownership type, choose University 
     - For "What would you like to register?" choose Wired from the drop-down
     - For Type of wired IP, choose Static 
-    - For Network/Subnet choose, start typing libnet and choose that from the drop-down
+    - If not on the private network: For Network/Subnet choose, start typing libnet and choose that from the drop-down
+    - If on the private network: For Network/Subnet choose, start typing ip4-library and choose ip4-library-servers from the drop-down
     - Under wired MAC address, paste the MAC address that you copied in step 9 in the previous section. Click the small "Add" button underneath
     - Under Options as the last step, choose "Add external view if IPs globally routable"
     - Submit the form; you should then receive IP address and other information in your email
