@@ -83,7 +83,7 @@ On our Jammy templates, keys for the Operations team are automatically added to 
 7. Change the permissions on the authorized_keys file so that the owner can read and write: 
 - ```chmod 600 .ssh/authorized_keys```
 
-8. Add the new user into the sshd_config file as an allowed user (in the config file, AllowUsers should be around line 123):
+8. Edit the sshd_config file to add the new user as an allowed user (in the config file, AllowUsers should be around line 123):
 - ```sudo vim /etc/ssh/sshd_config```
 
 9. Restart sshd for your changes to take effect: 
