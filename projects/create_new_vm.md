@@ -55,3 +55,39 @@ Our VMS will be using 14GB or the allocated thin provisioned 28GB. The following
 ## Add your host to the prancible inventory
 
 Create a new branch and make a PR to add VM to princeton_ansible/inventory/all_projects/[project_name]
+
+## Add users to your VM
+
+On our Jammy templates, keys for the Operations team are automatically added to the pulsys user's authorized_keys file. Non-Operations folks must run the [update pulsys user keys playbook](https://ansible-tower.princeton.edu/#/templates/job_template/17/details) to add their keys and enable SSH access as the pulsys user. There are some cases where you may want to SSH into a VM as a user other than pulsys. To add a different user, follow these steps: 
+
+1. Sign in to your VM as the pulsys user, i.e. 
+- ```ssh pulsys@sandbox-yoursandbox.lib.princeton.edu```
+
+2. Create the user. Replace "username" in the following command with the name of the user you are adding: 
+- ```sudo useradd -s /usr/bin/bash -d /home/username -m -G sudo username```
+
+3. Switch to the new user. Again, replace "username" in the following command with the name of the user you are adding: 
+- ```sudo su - username```
+
+4. Enter the URL for your GitHub public keys through this command (in the following URL, replace "YourUsername" with your GitHub username; the rest of the URL should remain the same):
+
+- ```wget https://github.com/YourUsername.keys```
+
+5. Make a new directory for the new .ssh keys and change the permissions so that the owner can read, write, and execute: 
+- ```mkdir .ssh```
+- ```chmod 700 .ssh```
+
+6. Create a new file in your directory for authorized_keys, and then put your keys in that file: 
+- ```touch .ssh/authorized_keys```
+- ```cat YourUsername.keys >> .ssh/authorized_keys```
+
+7. Change the permissions on the authorized_keys file so that the owner can read and write: 
+- ```chmod 600 .ssh/authorized_keys```
+
+8. Edit the sshd_config file to add the new user as an allowed user (in the config file, AllowUsers should be around line 123):
+- ```sudo vim /etc/ssh/sshd_config```
+
+9. After saving your changes to the config file, restart sshd for your changes to take effect: 
+- ```sudo systemctl restart sshd```
+
+10. Exit your session as the new user, then exit your SSH connection as the pulsys user, then ssh back in as the new user you just added. 
