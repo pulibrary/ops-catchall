@@ -65,7 +65,7 @@ On our Jammy templates, keys for the Operations team are automatically added to 
 2. Create the user. Replace "username" in the following command with the name of the user you are adding: 
 - ```sudo useradd -s /usr/bin/bash -d /home/username -m -G sudo username```
 
-3. Again, replace "username" in the following command with the name of the user you are adding: 
+3. Switch to the new user. Again, replace "username" in the following command with the name of the user you are adding: 
 - ```sudo su - username```
 
 4. Enter the URL for your GitHub public keys through this command (in the following URL, replace "YourUsername" with your GitHub username; the rest of the URL should remain the same):
