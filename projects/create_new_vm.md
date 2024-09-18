@@ -89,4 +89,4 @@ On our Jammy templates, keys for the Operations team are automatically added to 
 9. Restart sshd for your changes to take effect: 
 - ```sudo systemctl restart sshd```
 
-10. Exit your sandbox as the pulsys user and ssh back in as the new user you just added. 
+10. Exit your session as the new user, then exit your SSH connection as the pulsys user, then ssh back in as the new user you just added. 
