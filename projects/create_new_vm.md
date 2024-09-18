@@ -62,7 +62,7 @@ On our Jammy templates, keys for the Operations team are automatically added to 
 1. Sign in to your VM as the pulsys user, i.e. 
 - ```ssh pulsys@sandbox-yoursandbox.lib.princeton.edu```
 
-2. Replace "username" in the following command with the name of the user you are adding: 
+2. Create the user. Replace "username" in the following command with the name of the user you are adding: 
 - ```sudo useradd -s /usr/bin/bash -d /home/username -m -G sudo username```
 
 3. Again, replace "username" in the following command with the name of the user you are adding: 
