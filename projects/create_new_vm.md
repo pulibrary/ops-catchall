@@ -86,7 +86,7 @@ On our Jammy templates, keys for the Operations team are automatically added to 
 8. Edit the sshd_config file to add the new user as an allowed user (in the config file, AllowUsers should be around line 123):
 - ```sudo vim /etc/ssh/sshd_config```
 
-9. Restart sshd for your changes to take effect: 
+9. After saving your changes to the config file, restart sshd for your changes to take effect: 
 - ```sudo systemctl restart sshd```
 
 10. Exit your session as the new user, then exit your SSH connection as the pulsys user, then ssh back in as the new user you just added. 
