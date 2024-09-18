@@ -57,7 +57,7 @@ Create a new branch and make a PR to add VM to princeton_ansible/inventory/all_p
 
 ## Add users to your VM
 
-On our Jammy templates, the pulsys user is added automatically for Operations team members (for non-Operations folks, you will need to run the [update pulsys user keys playbook](https://ansible-tower.princeton.edu/#/templates/job_template/17/details) to add other IT members as pulsys users). There are some cases where you may want to add users other than pulsys to be able to SSH into your VM. To do that, follow these steps: 
+On our Jammy templates, keys for the Operations team are automatically added to the pulsys user's authorized_keys file. Non-Operations folks must run the [update pulsys user keys playbook](https://ansible-tower.princeton.edu/#/templates/job_template/17/details) to add their keys and enable SSH access as the pulsys user. There are some cases where you may want to SSH into a VM as a user other than pulsys. To add a different user, follow these steps: 
 
 1. Sign in to your VM as the pulsys user, i.e. 
 - ```ssh pulsys@sandbox-yoursandbox.lib.princeton.edu```
