@@ -68,7 +68,7 @@ On our Jammy templates, keys for the Operations team are automatically added to 
 
 4. Enter the URL for your GitHub public keys through this command (in the following URL, replace "YourUsername" with your GitHub username; the rest of the URL should remain the same):
 
-- ```wget https://github.com/YourUsername.keys```
+- ```wget https://github.com/GitHubUsername.keys```
 
 5. Make a new directory for the new .ssh keys and change the permissions so that the owner can read, write, and execute: 
 - ```mkdir .ssh```
