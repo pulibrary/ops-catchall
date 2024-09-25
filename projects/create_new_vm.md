@@ -47,10 +47,7 @@
 
 ## Expand the disk size
 
-Our VMS will be using 14GB or the allocated thin provisioned 28GB. The following steps will expand it to utilize all of the space. The following steps will expand your initial disk size
-
-- ```sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv```
-- ```sudo resize2fs /dev/ubuntu-vg/ubuntu-lv```
+Our VMS will be using 14GB or the allocated thin provisioned 28GB. Run the [Expand Disk playbook](https://ansible-tower.princeton.edu/#/templates/job_template/61/) from Ansible Tower to utilize all of the disk space.
 
 ## Add your host to the prancible inventory
 
@@ -71,7 +68,7 @@ On our Jammy templates, keys for the Operations team are automatically added to 
 
 4. Enter the URL for your GitHub public keys through this command (in the following URL, replace "YourUsername" with your GitHub username; the rest of the URL should remain the same):
 
-- ```wget https://github.com/YourUsername.keys```
+- ```wget https://github.com/GitHubUsername.keys```
 
 5. Make a new directory for the new .ssh keys and change the permissions so that the owner can read, write, and execute: 
 - ```mkdir .ssh```
@@ -79,7 +76,7 @@ On our Jammy templates, keys for the Operations team are automatically added to 
 
 6. Create a new file in your directory for authorized_keys, and then put your keys in that file: 
 - ```touch .ssh/authorized_keys```
-- ```cat YourUsername.keys >> .ssh/authorized_keys```
+- ```cat GitHubUsername.keys >> .ssh/authorized_keys```
 
 7. Change the permissions on the authorized_keys file so that the owner can read and write: 
 - ```chmod 600 .ssh/authorized_keys```
