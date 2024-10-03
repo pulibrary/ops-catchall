@@ -26,7 +26,7 @@
     - If not on the private network: For Network/Subnet choose, start typing libnet and choose that from the drop-down
     - If on the private network: For Network/Subnet choose, start typing ip4-library and choose ip4-library-servers from the drop-down
     - Under wired MAC address, paste the MAC address that you copied in step 9 in the previous section. Click the small "Add" button underneath
-    - Under Options as the last step, choose "Add external view if IPs globally routable"
+    - If not on the private IP network: Under Options as the last step, choose "Add external view if IPs globally routable." If on the private IP network, do not select any boxes here. 
     - Submit the form; you should then receive IP address and other information in your email
     
 2. Put in an l-support ticket to open firewall rules (assign to yourself)
