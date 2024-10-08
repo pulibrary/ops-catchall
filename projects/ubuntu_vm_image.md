@@ -7,6 +7,16 @@
   * You will need an Intel amd64 based hardware for the rest of this document.
   * Install [Ubuntu Desktop](https://ubuntu.com/download/desktop)
   * Download [VMware's Ovftool](https://github.com/rgl/ovftool-binaries) and add it to your path. (e.g ~/.local/)
+    ```bash
+    cd ~/Downloads
+    unzip VMware-ovftool-4.4.3-18663434-lin.x86_64.zip
+    mv ~/Downloads/ovftool ~/.local
+    ```
+  * add to your `~/.zshrc`
+    ```bash
+    # ovftool
+    export PATH=$HOME/.local/ovftool:$PATH
+    ```
 
 #### Download qemu and the Ubuntu ISO File
 
