@@ -17,12 +17,13 @@ You will need to make sure you are on the princeton network and connected using 
 * You will select the `Deploy OVF Template...` which will launch a Wizard.
 * Select the `Local file` radio button
 * Select `Upload Files` option and navigate to where you have the 3 Files you saved above and press `NEXT`
-* Give the `Virtual machine name:` a name (ideal that matches DNS)
-* From `Select a location for the virtual machine` place the virtual machine in `Discovered virtual machine` for staging or `drdsetvms` on Production and press `NEXT`
+* Give the `Virtual machine name:` a name (ideally YYYY-{jammy,rocky}-<season>-template)
+* From `Select a location for the virtual machine` place the virtual machine in `Discovered virtual machine` and press `NEXT`
 * From `Select the destination compute resource for this operation` expand the `VMCluster` and select one of the hosts and press `NEXT`
 * Select one of the **none host** storage locations (they will usually have SAN on them and not a host name). The preference is to always `thin provision` the `Select virtual disk format` from the drop down and press `NEXT`
-* When Selecting the Network select `Virtual Machine Network` except in cases where a new VM will be in the private network and press `NEXT`
+* When Selecting the Network select `Virtual Machine Network` network and press `NEXT`
 * Press `Finish`
+* Your new `2024-{ubuntu,rocky}-<season>-template` is now running on VMware as a VM. Make it a template so we can create VMs based on it. Select the `Actions` menu. Find the Template Submenu and select Convert to Template.
 
 #### Initial VM Configuration
 
