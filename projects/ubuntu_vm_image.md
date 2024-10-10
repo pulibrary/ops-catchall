@@ -97,7 +97,7 @@ When your machine reboots you can now create a bare minimal installation.
     * this will launch the vi editor. Find the line that has `%sudo  ALL=(ALL) ALL` and modify it to look like this `%sudo ALL=(ALL) NOPASSWD:ALL` 
   * Restrict access to just the pulsys user with the following.
     * Open the `/etc/ssh/sshd_config` file and add the following line at the end of the file. `AllowUsers pulsys`
-    * Add the [Ansible Tower Key](https://github.com/pulibrary/princeton_ansible/blob/main/keys/TowerKey.pub) to `/home/pulsys/.ssh/authorized_keys`
+    * Add the [Ansible Tower Key](https://github.com/pulibrary/princeton_ansible/blob/main/keys/TowerKey.pub) to by editing the `/home/pulsys/.ssh/authorized_keys` file.
       # Key for our Tower instance
       Grab the Ops Team Keys from Github and append those to `/home/pulsys/.ssh/authorized_keys`:
         - [acozine](https://github.com/acozine.keys)
@@ -110,12 +110,12 @@ When your machine reboots you can now create a bare minimal installation.
 
 #### Modify the network interface
 
-The qemu image will need a different network driver when mounted on a ESXI host. Modify the netplan device with the following `sudo vim /etc/netplan/00-installer-config.yaml` and replace the `ensp1*` with `ens192` that the ESXi expects. Close and save the file
+The qemu image will need a different network driver when mounted on a ESXI host. Modify the netplan device with the following `sudo vim /etc/netplan/00-installer-config.yaml` and replace the `ensp1*` with `ens192` that the ESXi expects. Close and save the file. If this file is not present copy the contents of whatever file will be at `/etc/netplan` to be the new `00-installer-config.yaml`
 
 #### Strip out unique data
 
   * Cleanup current ssh-keys
-    * Create a file names `regenerate_ssh_keys.sh`
+    * Open your editor to create a file names `regenerate_ssh_keys.sh`
     * Add the following to the file
     ```bash
     #!/usr/bin/bash
@@ -175,6 +175,7 @@ The qemu image will need a different network driver when mounted on a ESXI host.
   * With your Virtual Machine powered select the **File Menu**
     * Select File -> View Manager (You should see your Ubuntu VM)
     * Select View Machine Details and perform any additional edits
+    * Take a note of the path of your Disk image which you will need in the next step.
   * You can now copy the image by running the following:
     ```bash
     sudo qemu-img convert -f qcow2 -O vmdk /var/lib/libvirt/images/2024_jammy_<season>.qcow2 /home/<username>/Desktop/2024_jammy_<season>.vmdk
