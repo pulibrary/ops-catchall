@@ -11,13 +11,13 @@
     4. Choose a compute resource* (any machine that does not currently have an issue notification on it will be fine).* 
     5. Put on storage that has the most space free
     6. From "Select virtual disk format" drop-down, choose Thin Provision
-    7. Check boxes: "Customize this virtual machine's hardware" and "Power on virtual machine after creation"
+    7. Check boxes: If creating a new VM, check off "Customize this virtual machine's hardware" and "Power on virtual machine after creation." If replacing a VM, only check off "Customize this virtual machine's hardware;" the machine will stay powered off throughout the network registration process (to retain the old MAC address) and can then be turned on when registration is complete. 
     8. Expand "Network adapter 1," and from the automatic MAC address, copy and paste all the characters. (You will need these for the network registration below)
     *Note: Machines with "a" next to the name are in Forrestal; machines with "b" next to the name are in New South.
 
 ## Register the Host on the Network
 
-1. Our network requires a registered MAC address to OIT DHCP Server. The steps to do this can be accomplished at the following [URI Network registration](https://princeton.service-now.com/service?id=sc_category&sys_id=0c0591f14f9d270c18ddd48e5210c79c) - use the MAC address from step 9 above
+1. Our network requires a registered MAC address to OIT DHCP Server. The steps to do this can be accomplished at the following [URI Network registration](https://princeton.service-now.com/service?id=sc_category&sys_id=0c0591f14f9d270c18ddd48e5210c79c) - use the MAC address from step 8 above
     - In the Device Type drop-down, start typing in Linux and choose Linux Server
     - In the Model drop-down, start typing VMWare and choose VMWare, Inc. VMWare Virtual Platform
     - For Ownership type, choose University 
