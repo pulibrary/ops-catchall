@@ -11,8 +11,11 @@
     4. Choose a compute resource* (any machine that does not currently have an issue notification on it will be fine).* 
     5. Put on storage that has the most space free
     6. From "Select virtual disk format" drop-down, choose Thin Provision
-    7. Check boxes: If creating a new VM, check off "Customize this virtual machine's hardware" and "Power on virtual machine after creation." If replacing a VM, only check off "Customize this virtual machine's hardware;" the machine will stay powered off throughout the network registration process (to retain the old MAC address) and can then be turned on when registration is complete. 
-    8. Expand "Network adapter 1," and from the automatic MAC address, copy and paste all the characters. (You will need these for the network registration below)
+    7. Check boxes: "Customize this virtual machine's hardware" and "Power on virtual machine after creation." 
+    8. In the Customize Hardware section, CPU, memory, and Hard disk 1 will default to pre-set sizes. Make sure to change these if other options are needed. 
+    8. Then, expand "Network adapter 1" accordion and be sure to choose the correct network for the environment you're creating (private network (VM Network - LibNetPvt) vs. routable IP network (Virtual Machine Network)).
+    9. Click next and if all details look correct, Finish in the bottom right. 
+    10. Once the machine has powered on, right click on it and choose Edit Settings. Expand the Network adapter 1 accordion and copy all characters of the MAC address (you will need these for the network registration below).
     *Note: Machines with "a" next to the name are in Forrestal; machines with "b" next to the name are in New South.
 
 ## Register the Host on the Network
@@ -25,7 +28,7 @@
     - For Type of wired IP, choose Static 
     - If not on the private network: For Network/Subnet choose, start typing libnet and choose that from the drop-down
     - If on the private network: For Network/Subnet choose, start typing ip4-library and choose ip4-library-servers from the drop-down
-    - Under wired MAC address, paste the MAC address that you copied in step 9 in the previous section. Click the small "Add" button underneath
+    - Under wired MAC address, paste the MAC address that you copied in step 10 in the previous section. Click the small "Add" button underneath
     - If not on the private IP network: Under Options as the last step, choose "Add external view if IPs globally routable." If on the private IP network, do not select any boxes here. 
     - Submit the form; you should then receive IP address and other information in your email
     
