@@ -13,7 +13,7 @@
     6. From "Select virtual disk format" drop-down, choose Thin Provision
     7. Check boxes: "Customize this virtual machine's hardware" and "Power on virtual machine after creation." 
     8. In the Customize Hardware section, CPU, memory, and Hard disk 1 will default to pre-set sizes. Make sure to change these if other options are needed. 
-    8. Then, expand "Network adapter 1" accordion and be sure to choose the correct network for the environment you're creating (private network (VM Network - LibNetPvt) vs. routable IP network (Virtual Machine Network)).
+    8. Then, expand "Network adapter 1" accordion and be sure to choose the correct network for the environment you're creating (private network (VM Network - LibNetPvt) vs. public network (Virtual Machine Network)).
     9. Click next and if all details look correct, Finish in the bottom right. 
     10. Once the machine has powered on, right click on it and choose Edit Settings. Expand the Network adapter 1 accordion and copy all characters of the MAC address (you will need these for the network registration below).
     *Note: Machines with "a" next to the name are in Forrestal; machines with "b" next to the name are in New South.
