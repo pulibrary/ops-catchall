@@ -1,5 +1,7 @@
 ## Change LibGuide Owner
 
+Each LibGuide can have one owner, but guides can have multiple editors. A common admin task involves changing a guide's owner when a staff member leaves or changes responsibilities. To do that, follow these steps: 
+
 1. Navigate to the ```Content``` tab in the top dashboard and click ```Guides``` from the drop-down. 
 
 2. Search for guide by any identifier you have (e.g. name, type, owner).
