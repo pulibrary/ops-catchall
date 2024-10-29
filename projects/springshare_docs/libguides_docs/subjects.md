@@ -1,6 +1,6 @@
 ### LibGuides Subjects
 
-Subjects are part of the LibGuides infrastructure and are different from Groups (see [groups.md](https://github.com/pulibrary/ops-catchall/blob/c5fbeefaee680872179a27d87852335e1f9fb749/projects/springshare_docs/libguides_docs/groups.md)). Guides can belong to multiple subjects, and any LibGuides regular user can add a Subject to any Guide they can edit (see [Confluence documentation](https://pul-confluence.atlassian.net/wiki/spaces/SS/pages/1769535/Adding+Subjects+to+Your+Guides)). Subjects are also connected to Experts and Databases (Assets); a Subject's landing page shows all affiliated Subject metadata (see [PUL African American Studies example](https://libguides.princeton.edu/african-american-studies)).
+Subjects are part of the LibGuides infrastructure and are different from Groups (see [groups.md](link)). Guides can belong to multiple subjects, and any LibGuides regular user can add a Subject to any Guide they can edit (see [Confluence documentation](https://pul-confluence.atlassian.net/wiki/spaces/SS/pages/1769535/Adding+Subjects+to+Your+Guides)). Subjects are also connected to Experts and Databases (Assets); a Subject's landing page shows all affiliated Subject metadata (see [PUL African American Studies example](https://libguides.princeton.edu/african-american-studies)).
 
 ## Manage Subjects
 
