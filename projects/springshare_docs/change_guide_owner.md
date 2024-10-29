@@ -9,5 +9,7 @@
     4. Select new guide owner from the list by starting to type their name.
 
     5. Optionally, you can check the box to reassign individual assets to the new owner (confirm with whomever is making the request for the new owner).
-    
+
     6. Hit the blue save button and changes will be made. 
+
+    Note: See this topic in [Springshare's documentation](https://ask.springshare.com/libguides/faq/1325) (you must be logged into your PUL LibApps account to view)
