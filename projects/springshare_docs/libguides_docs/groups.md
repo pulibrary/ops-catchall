@@ -10,7 +10,6 @@ To manage which Guides belong to Groups and to manage Group settings:
 2. Under the ```Actions``` column, choose the edit icon. 
 3. You can use the tabs at the top of the Group to perform tasks such as setting/editing a Friendly URL, adding/removing user access, and editing the Look & Feel of the Group Homepage (see [Springshare's documentation](https://ask.springshare.com/libguides/faq/937) on editing a Group Homepage)(you must be logged into your PUL LibApps account to view).
 
-
 ### Add Guide to a Group
 
 To add a LibGuide to a group: 
