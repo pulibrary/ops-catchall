@@ -15,3 +15,11 @@ Each LibGuide can have one owner, but guides can have multiple editors. A common
 6. Hit the blue ```Save``` button and changes will be made. 
 
 Note: See this topic in [Springshare's documentation](https://ask.springshare.com/libguides/faq/1325) (you must be logged into your PUL LibApps account to view)
+
+While a LibGuide can only have one owner, it can have multiple editors. Guide owners can add editors on their own. To do this: 
+
+1. Open the Guide you are trying to add editors to in editing mode.
+
+2. From the top right navigation bar, choose the gear icon drop-down and select ```Guide Editors.```
+
+3. Select editors from the list or start to type their names. Hit the blue ```Save``` button at the bottom. 
