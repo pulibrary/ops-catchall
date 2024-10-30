@@ -1,6 +1,6 @@
 ## LibGuides Look & Feel
 
-LibGuides uses a combination of custom HTML/CSS code and templates to manage the Look & Feel of the overall LibGuides system. PUL has several custom templates, and we keep track of these files on GitHub in the [libapps repo](https://github.com/pulibrary/libapps/tree/main/libguides).   
+LibGuides uses custom HTML/CSS code and templates that are updated within the UI to manage the Look & Feel of the overall LibGuides system. PUL has several custom templates, and we keep track of these files on GitHub in the [libapps repo](https://github.com/pulibrary/libapps/tree/main/libguides).   
 
 ### Header and Footer
 
