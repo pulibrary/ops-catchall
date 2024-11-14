@@ -1,6 +1,6 @@
 ## LibCal Events
 
-The LibCal Events module hosts our PUL event calendars, repository of event registration forms, and calendar widgets that are embedded in various library applications (PUL website, Confluence, LibGuides, etc.). We have four main calendars in our Events; their purposes in addition to different account levels are explained for users on our [LibCal Confluence page](https://pul-confluence.atlassian.net/wiki/spaces/SS/pages/1769508/Event+Calendars). Below will list some common admin tasks in Events:   
+The LibCal Events module hosts our PUL event calendars, repository of event registration forms, and calendar widgets that are embedded in various library applications (PUL website, Confluence, LibGuides, etc.). We have four main calendars in our Events; their purposes, in addition to different account levels, are explained for users on our [LibCal Confluence page](https://pul-confluence.atlassian.net/wiki/spaces/SS/pages/1769508/Event+Calendars). Below will list some common admin tasks in Events:   
 
 ### Manage Calendar Permissions
 
@@ -12,7 +12,7 @@ Each calendar has its own settings and permissions, which can be edited in the `
 
 ### Manage Calendar Categories 
 
-Categories can be added to events on our calendars to make them filterable for users on the main calendar page. You can also send a link from a filtered category to show users only events in that category. Only admins in LibCal can manage categories at the Calendar level. To do this: 
+Categories can be added to events on our calendars to make them filterable for users on the main library website [calendar page](https://libcal.princeton.edu/calendar/events). You can also send a link from a filtered category to show users only events in that category. Only admins in LibCal can manage categories at the Calendar level. To do this: 
 
 1. Open any calendar and click on the ```Categories``` tab in the top navigation
 (Note: each calendar has different categories and you'll want to check with the calendar owner before making any changes).  
@@ -30,6 +30,12 @@ Internal tags are used mainly by staff for internal and tracking purposes and un
 
 ### Event Registration Forms
 
+Registration forms can be customized for specific events. By default, if no registration form is chosen for an event, LibCal will default to a form that includes a registrant's Full Name and Email. To create or customize registration forms: 
+
+1. In LibCal, click on the ```Events``` top menu item and choose the tab called ```Registration Forms.```
+2. Here, there is the ability to ```Create New Form,``` ```Copy existing Form,``` or you can modify a form that we already have in the list. 
+3. Once your form has been saved, you can enable it when creating a new event. As you are creating the event, scroll down to the section on ```Event Registration``` and check the box for ```Registration is required.``` Choose the form you would like from the ```Registration Form``` drop-down. 
+4. Note that with Registration Forms, the default is set so that users must authenticate with CAS in order to register for an event. To turn this off, choose ```Inactive``` from the ```Activate LibAuth Authentication``` drop-down. 
 
 ### Embed/Export a Calendar
 
@@ -38,4 +44,4 @@ Often, folks will want to embed an event calendar in a LibGuide, on a Confluence
 1. Open the calendar in LibCal that you want to embed, and click on the ```Embed/Export``` tab at the top. 
 2. There are options to embed an iCal Subscription (used for our Library Website), XML Export, RSS Feeds, and Widgets (note: widgets are accessed in a different secion of LibCal that links from this section). 
 3. Each way of exporting/embedding allows you to choose how you would like the calendar to appear and how it should be filtered (e.g. by category, audience, internal tag, etc.).
-4. Once you choose the options mentioned above, LibCal will generate a link or emebed that you can use in any other interface that accepts links/code. 
+4. Once you choose the options mentioned above, LibCal will generate a link or emebed code that you can use in any other web interface that accepts links/code. 
