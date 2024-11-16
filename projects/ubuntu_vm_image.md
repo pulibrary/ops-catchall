@@ -1,8 +1,8 @@
-# Create an Ubuntu Virtual Machine
+### Create an Ubuntu Virtual Machine
 
 **Don't Panic!**
 
-## Prerequisites to Install Ubuntu on VMWare Workstation
+#### Prerequisites to Install Ubuntu on VMWare Workstation
 
   * You will need an Intel amd64 based hardware for the rest of this document.
   * Install [Ubuntu Desktop](https://ubuntu.com/download/desktop)
@@ -19,31 +19,41 @@
     ```
 
 
-## Download VMWare Workstation and the Ubuntu ISO File
+#### Download VMWare Workstation and the Ubuntu ISO File
 
   * You can download (registration with Broadcom required) and Install [VMWare Workstation Pro](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)
   * Download the [Ubuntu LTS](https://ubuntu.com/download/server) iso file (Use Jammy (22.04))
 
-#### Create a New Virtual Machine
+#### Create an Ubuntu Jammy Virtual Machine
 
-- Open VMware Workstation.
-- Select File > New.
-- Choose Create a Custom Virtual Machine.
-- Select Custom > Advanced.
-- Virtual Machine Hardware Compatibility -> ESXi 7.0
-- Proceed with VM creation:
-  - Allocate at least 2 CPUs, 8 GB RAM.
-  - Add a virtual hard disk of sufficient size (30 GB).
-  - Attach the Ubuntu Jammy ISO as the installation media.
+  * Launch the VMWare Workstation on your system. **Select File > New** and Follow the Wizard.
+    * In the **New Virtual Machine Wizard** window, Select **Custom (advanced)**
+    * In the **Choose the Virtual Machine Hardware Compatibility** window, select **ESXi 7.0**
+    * In the **Guest Operating System Installation** window. Choose ** Use (ISO image or CDROM)** option. Select the Ubuntu ISO from the step above.
+    * In the **Name the Virtual Machine** window, Name: `(year)-jammy-(season)-template` and take note of the Location.
+    * In the **Processor Configuration** window.
+      * Select the default, 2 Processors
+      * Select the default, Number of cores per processor 1
+    * In the **Memory for Virtual Machine** window.
+      * Toggle the memory to 8GB (precise value is 8192)
+    * In the **Network Type** window.
+      * Select the default, (Use Network address translation NAT)
+    * In the **Select I/O Controller Types** window.
+      * Select the default, (LSI Logic (Recommended))
+    * In the **Select a Disk Types** window.
+      * Select the default, (SCSI Recommended)
+      * Select the default, Create a new virtual disk
+    * In the **Specify Disk Capacity** window.
+      * Disk Size, (30.00)
+      * Split Virtual Disk into multiple files
+    * In the **Specify Disk File** window.
+      * Select the default
+     * In the **Ready to Create Virtual Machine** window.
+      * Click on Customize Hardware
+        * Remove Sound Card, USB Controller
+        * In the Display Uncheck (Accelerate 3d graphics) 
+  * Complete the Jammy installation with the steps below
 
-#### Install Ubuntu
-- Boot the VM using the attached ISO.
-- Follow the installation prompts:
-Choose Minimal Installation.
-Select Manual Partitioning (if you prefer custom partitioning).
-Set the hostname to `lib-vm`.
-Create the pulsys user
-Complete the installation and reboot.
 
 #### Install Ubuntu on the Virtual Machine
 
@@ -163,7 +173,6 @@ When your machine reboots you can now create a bare minimal installation.
   * Clean up apt and cloud init with the following commands:
     ```bash
     sudo apt clean
-    sudo cloud-init clean
     ```
   * Go to LastPass and find the password for the pulsys user and change it using the following as the `pulsys` user. 
     * passwd
@@ -173,7 +182,10 @@ When your machine reboots you can now create a bare minimal installation.
 
 #### Export to OVA for ESXi
 - Power off the VM.
-- In VMware Fusion, go to File > Export to OVF.
+- In VMware Workstation
+  - Select `(year)-jammy-(season)-template` -> Settings
+    - Change the (CD/DVD) to Auto detect and save
+  - Go to File --> Export to OVF.
 - Save the OVA template file.
 - When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
 - You can now follow the [VSphere Steps](vsphere_hypervisor.md) to import
