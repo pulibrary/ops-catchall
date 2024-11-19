@@ -172,8 +172,8 @@ When your machine reboots you can now create a bare minimal installation.
     ```bash
     sudo apt clean
     ```
-  * Go to LastPass and find the password for the pulsys user and change it using the following as the `pulsys` user. 
-    * passwd
+  * Go to LastPass and find the password for the pulsys user and change it using the following commands as the `pulsys` user. 
+    * `passwd`
     * You will be prompted for the 1234temp (current password)
     * Enter the password from lastpass or create a new one and save it on lastpass
   * shutdown your VM with `sudo shutdown -h now`
