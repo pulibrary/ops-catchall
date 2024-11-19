@@ -181,8 +181,8 @@ When your machine reboots you can now create a bare minimal installation.
 #### Export to OVA for ESXi
 - Power off the VM.
 - In VMware Workstation
-  - Select `(year)-jammy-(season)-template` -> Settings
-    - Change the (CD/DVD) to Auto detect and save
+  - Select `(year)-jammy-(season)-template` -> Settings from the step earlier
+    - Change the (CD/DVD) to **Use a physical drive** Device Auto detect and save
   - Go to File --> Export to OVF.
 - Save the OVA template file.
 - When the export is complete upload your new image to the [Virtual Machine Image directory](https://drive.google.com/drive/u/0/folders/1Op-tNRvE_LMlJa6E-Ig4nNEKtKCcXsIF)
