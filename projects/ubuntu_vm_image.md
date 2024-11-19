@@ -86,7 +86,6 @@ When your machine reboots you can now create a bare minimal installation.
 
   * From your terminal log into your VM with `ssh pulsys@<the IP address you wrote down>`
     * if you forgot to record your IP address you can find it from the virt-manager application (it is a clunky UI).
-    * you can also use `ip a` to find the results from the virb0 device 
   * Update your VM with `sudo apt -y update && sudo apt -y upgrade`
   * Install VMWare tools with `sudo apt -y install open-vm-tools`
   * Install fail2ban with `sudo apt -y install fail2ban`
@@ -119,11 +118,10 @@ When your machine reboots you can now create a bare minimal installation.
         - [jkazmier-PUL](https://github.com/jkazmier-PUL.keys)
         - [kayiwa](https://github.com/kayiwa.keys)
         - [VickieKarasic](https://github.com/vickieKarasic.keys)
-        - 
 #### Strip out unique data
 
   * Cleanup current ssh-keys
-    * Open your editor to create a file names `regenerate_ssh_keys.sh`
+    * Open your editor to create a file named `regenerate_ssh_keys.sh`
     * Add the following to the file
     ```bash
     #!/usr/bin/bash
