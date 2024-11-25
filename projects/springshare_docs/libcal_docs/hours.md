@@ -12,7 +12,7 @@ PUL uses the Hours module to set building hours across all libraries. Only admin
 4. Under ```Opening Hours``` on the left, you can edit any existing Hours template by choosing the pencil/paper icon in the ```Action``` column. To add a date range and an existing template for that range, choose ```+Add Date Range``` at the bottom of the ```Opening Hours``` section. 
 5. An exception to the Opening Hours can be added in the ```Exceptions``` panel on the right by clicking ```+Add Exception``` at the bottom of the panel. An exception can be deleted by clicking the trashcan icon in the ```Action``` column on the right. 
 
-#### Add Users to Hours module 
+#### Add Users to Hours Module 
 
 Users can be added to the Hours module by editing their account: 
 
