@@ -4,13 +4,24 @@ PUL uses the Hours module to set building hours across all libraries. Only admin
 
 ### Hours Administration
 
-To manage Hours for all library locations: 
+#### Manage Hours for Library Locations 
 
 1. From the ```Admin``` drop-down, choose ```Hours.``` Here, you will see a preview of all PUL library hours as well as settings for individual libraries and departments within those libraries. 
 2. To edit a library's hours, scroll down past the ```Hours Preview``` to the invidivudal location, listed alphabetically. 
 3. Choose ```Edit Hours / Exceptions``` for the library or department within the library you want to update. 
 4. Under ```Opening Hours``` on the left, you can edit any existing Hours template by choosing the pencil/paper icon in the ```Action``` column. To add a date range and an existing template for that range, choose ```+Add Date Range``` at the bottom of the ```Opening Hours``` section. 
 5. An exception to the Opening Hours can be added in the ```Exceptions``` panel on the right by clicking ```+Add Exception``` at the bottom of the panel. An exception can be deleted by clicking the trashcan icon in the ```Action``` column on the right. 
+
+#### Add Users to Hours module 
+
+Users can be added to the Hours module by editing their account: 
+
+1. From the ```Admin``` drop-down, choose ```Accounts.```
+2. Click the pencil/paper icon in the ```Action``` column on the right for the person whose account you'd like to edit. 
+3. Once in the account, click the ```Permissions``` tab at the top. Scroll to ```Hours``` at the bottom of the page. 
+4. Under ```Libraries``` choose the default "Allowed to adjust schedule and add/remove exceptions" to set access on a per library basis. If Full Access to Hours is needed, choose that option from the drop-down. 
+5. Under ```Weekly Templates``` choose the default of "Full Access."  
+6. In the ```Spaces & Equipment``` section of the page, which is right above the ```Hours``` section, under ```Hours Maintenance,``` choose the default of "Full Access" here as well.  
 
 ### Manage Templates
 
@@ -56,14 +67,3 @@ Exceptions, such as change of hours or closures, can also be made to an individu
 3. Scroll down past the ```Hours Preview``` and find the location you'd like to edit. In the ```Update``` column, click ```Edit Hours / Exceptions.```
 4. The Exceptions are listed in the table on the right. To delete an exception, click the trashcan icon in the ```Action``` column. 
 5. To add an exception, click ```+Add Exception``` at the bottom left of the exceptions table. 
-
-### Add Users to Hours module 
-
-Users can be added to the Hours module by editing their account: 
-
-1. From the ```Admin``` drop-down, choose ```Accounts.```
-2. Click the pencil/paper icon in the ```Action``` column on the right for the person whose account you'd like to edit. 
-3. Once in the account, click the ```Permissions``` tab at the top. Scroll to ```Hours``` at the bottom of the page. 
-4. Under ```Libraries``` choose the default "Allowed to adjust schedule and add/remove exceptions" to set access on a per library basis. If Full Access to Hours is needed, choose that option from the drop-down. 
-5. Under ```Weekly Templates``` choose the default of "Full Access."  
-6. In the ```Spaces & Equipment``` section of the page, which is right above the ```Hours``` section, under ```Hours Maintenance,``` choose the default of "Full Access" here as well.  
