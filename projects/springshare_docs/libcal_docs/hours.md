@@ -14,7 +14,48 @@ To manage Hours for all library locations:
 
 ### Manage Templates
 
+We use the weekly templates feature in LibCal to manage regular hours and schedules for each library. A location can have multiple templates for different time periods (e.g. fall semester, winter break, etc.) and templates can be copied and renamed for ease of use. 
+
+#### Manage templates 
+
+1. From the ```Admin``` drop-down, choose ```Hours.```
+2. Choose the ```Weekly Templates``` tab in the top menu. 
+3. Here, you can view all existing templates and an hours preview, as well as edit any template by clicking the paper/pencil icon in the ```Action``` column. 
+4. Add a new weekly template or copy an existing one by using the buttons above the Weekly Template names/previews. 
+
+#### Apply Templates
+
+To apply a template, you will need to do so in the specific Library location: 
+
+1. From the ```Admin``` drop-down, choose ```Hours.```
+2. Choose the ```Libraries``` tab in the top menu.
+3. Scroll down past the ```Hours Preview``` and find the location you'd like to edit. In the ```Update``` column, click ```Edit Hours / Exceptions.```
+4. To add a new template, choose ```+Add Date Range``` at the bottom of the ```Opening Hours``` panel on the right. 
+5. To edit an existing template, choose the pencil/paper icon in the ```Action``` column of the ```Opening Hours``` table. 
+
 ### Manage Exceptions
+
+We use exceptions to make changes to site-wide or individual location templates. To do that: 
+
+#### Site-Wide Exceptions
+
+We use site-wide exceptions to apply different hours to all locations for things like holidays or break times. 
+
+1. From the ```Admin``` drop-down, choose ```Hours.```
+2. Choose the ```Manage Exceptions``` tab in the top menu.
+3. From the calendar on the left, choose the date where you would like to make an exception. 
+4. Click on the ```Add Exception``` button underneath the date and then customize the exeception by choosing the type, the locations it applies to, and any custom message. 
+5. Click the blue ```Add / Update``` Exceptions button at the bottom to save. 
+
+#### Update Exceptions
+
+Exceptions, such as change of hours or closures, can also be made to an individual location: 
+
+1. From the ```Admin``` drop-down, choose ```Hours.```
+2. Choose the ```Libraries``` tab in the top menu.
+3. Scroll down past the ```Hours Preview``` and find the location you'd like to edit. In the ```Update``` column, click ```Edit Hours / Exceptions.```
+4. The Exceptions are listed in the table on the right. To delete an exception, click the trashcan icon in the ```Action``` column. 
+5. To add an exception, click ```+Add Exception``` at the bottom left of the exceptions table. 
 
 ### Add Users to Hours module 
 
