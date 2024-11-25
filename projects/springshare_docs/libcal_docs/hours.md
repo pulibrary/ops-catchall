@@ -16,7 +16,7 @@ To manage Hours for all library locations:
 
 We use the weekly templates feature in LibCal to manage regular hours and schedules for each library. A location can have multiple templates for different time periods (e.g. fall semester, winter break, etc.) and templates can be copied and renamed for ease of use. 
 
-#### Manage templates 
+#### Access Templates 
 
 1. From the ```Admin``` drop-down, choose ```Hours.```
 2. Choose the ```Weekly Templates``` tab in the top menu. 
