@@ -4,6 +4,8 @@ PUL uses the Hours module to set building hours across all libraries. Only admin
 
 ### Hours Administration
 
+The hours of record across the Libraries are managed by the Library Administration Team (LAT) and are posted/edited on Confluence on the [Library Hours Plan](https://pul-confluence.atlassian.net/wiki/spaces/LAT/pages/2326540/Library+Hours+Plan).  
+
 #### Manage Hours for Library Locations 
 
 1. From the ```Admin``` drop-down, choose ```Hours.``` Here, you will see a preview of all PUL library hours as well as settings for individual libraries and departments within those libraries. 
