@@ -28,8 +28,8 @@ server {
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    ssl_certificate /etc/nginx/ssl/certs/sandbox-fkayiwa_lib_princeton_edu_chained.pem;
-    ssl_certificate_key /etc/nginx/ssl/private/sandbox-fkayiwa_lib_princeton_edu_priv.key;
+    ssl_certificate /etc/letsencrypt/live/sandbox-fkayiwa/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/sandbox-fkayiwa/privkey.pem;
     root /var/www/html/drupal;
     location / {
         try_files $uri $uri/ /index.php$is_args$args;
