@@ -25,7 +25,7 @@ Other LibChat settings to manage include:
 2. In the ```System Canned Messages``` tab, you can create and reorder common messages to send to patrons with the click of a button within LibChat. 
 3. In the ```Who's Online``` tab, you can see which staff member is staffing Chat (and you can terminate their session from here), which departments are online, and any patrons who are chatting. 
 4. In the ```Settings``` tab, you can control overall elements, such as transcript settings and sign-off schedule rules. 
-5. The ```Screenshaing APIs``` tab allows us how to manage our screensharing (we use the Zoom option) and whose accounts are configure to use that option (Zoom integrations at the user-level are managed in LibCal).
+5. The ```Screenshaing APIs``` tab allows us to manage our screensharing option (we use the Zoom option) and whose accounts are configured to use that option (note: Zoom integrations at the user-level are managed in LibCal).
 6. The ```Jump to Chat Widgets``` tab manages the different widgets we have embedded on the Library website for users to connect to chat; these widgets can be edited or we can create new widgets here. 
 
 ### Other LibChat Features

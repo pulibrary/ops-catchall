@@ -2,7 +2,7 @@
 
 We use LibAnswers at PUL for the email queues it allows various people around the library to manage. For many queues, we have a ```@princeton.edu``` email address or service account that forwards into a queue; the queue email addresses themselves must end with ```@princeton.libanswers.com``` but can be customized before the ```@``` symbol. Admins in Springshare have access to view/edit all queues. Regular users must be added at the queue-level to any queues they need access to and can be given limited or full access. 
 
-We currently pay Springshare to license 15 queues. We typically aren't using all 15 at a given time. If we do need more queues, we can purchase them in groups of 3 from Springshare by emailing sales@springshare.com. The following are administrative tasks frequently performed around queues. 
+We currently pay Springshare to license 15 queues. If we need more queues, we can purchase them in groups of 3 from Springshare by emailing sales@springshare.com. The following are administrative tasks frequently performed around queues. 
 
 ### Queue administration
 
@@ -15,8 +15,8 @@ Queues in LibAnswers can be managed via the Admin tab on the LibAnswers landing 
 3. To edit a queue, click the pencil/paper icon in the ```Actions``` column to the right. 
 4. When editing a queue, there are various options to customize the following: 
 - In the ```User Access``` tab, you can add people who have LibAnswers accounts to be Regular or Admin users, or users that are "limited" and can only add internal notes in tickets. 
-- The ```Question Form``` tab allows you to customize the form that patrons fill out to submit a question to the email queue. 
-- The ```Email``` tab lets you edit the receiving email address of the queue, add any email addresses that are being forwarded into the queue (e.g. @princeton.edu addresses), and edit options for how the email gets set from the queue (all of our queues use the default that Springshare sends the emails).
+- The ```Question Form``` tab allows you to customize the form that patrons fill out to submit a ticket to the queue. 
+- The ```Email``` tab lets you edit the receiving email address of the queue, add any email addresses that are being forwarded into the queue (e.g. ```@princeton.edu``` addresses), and edit options for how the email gets set from the queue (all of our queues use the default that Springshare sends the emails).
 - The ```Email Templates``` tab lets you customize details about template emails that get sent 
 when certain actions are completed in the queue (e.g. transferring a ticket to another user, patron reply notification, etc.).
 - The ```Notifications``` tab defines which staff get notified directly to their own email any time a ticket is submitted to the queue. 

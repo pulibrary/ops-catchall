@@ -1,13 +1,13 @@
 ## FAQs
 
-FAQs in LibAnswers are groups of questions that get asked frequently enough via tickets or chats that we've created a knowledge base to keep answers updated and available to users to broswe through on our site before/in addition to submitting a question. 
+FAQs in LibAnswers are groups of questions that get asked frequently enough via tickets or chats that we've created a knowledge base to keep answers updated and available to users to browse through on our site before/in addition to submitting a question. 
 
 ### FAQ Groups
 
 FAQs are divided into groups, usually by subject or location. To manage FAQ groups: 
 
 1. From the ```Admin``` drop-down, choose ```FAQ Groups.```
-2. From the Manage FAQ Groups page, you'll see our current FAQ groups, their friendly URL, how many questions are in each group, and the access level, either public/open, internal, or restricted internal. 
+2. From the Manage FAQ Groups page, you'll see our current FAQ groups, their friendly URL, how many questions are in each group, and the access level (public/open, internal, or restricted internal). 
 3. You can edit an FAQ group by clicking the pencil/paper icon in the ```Actions``` column on the right.
 4. You can preview how a group looks to patrons by clicking the eyeball icon in the ```Actions``` column on the right. 
 
