@@ -1,6 +1,8 @@
 ## Forms
 
-Forms in LibWizard can be embedded in other parts of the LibApps system as well as on webpages via <iframe> codes. 
+Forms in LibWizard can be embedded in other parts of the LibApps system as well as on webpages via <iframe> codes. They are useful for capturing information on websites and features include: a drag and drop interface for adding questions/content, skip logic and if/then statements, ability to email submissions to any users. 
+
+To create/manage forms: 
 
 1. In LibWizard, open the ```Forms``` tab in the top navigation. 
 2. From the main dashboard, you can click to view a form's URL/Code, # of Submissions, # Items in the form, and you can preview a form or move it to a folder by clicking the three dots in the ```Actions``` column on the right. 
