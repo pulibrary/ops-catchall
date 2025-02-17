@@ -7,7 +7,7 @@
 - Click on Actions and then New VM from This Template
     1. If replacing a VM, name is same as original VM. If creating a new VM, enter the FQDN (fully qualified domain name) indicated on the ticket or by the requester. 
     2. On dev, choose Library-Dev -> Discovered virtual machine
-    3. On prod, choose Library -> dev-rebootable-vms
+    3. On prod, choose Library-Dev -> AnsibleBuiltVMs
     4. Choose a compute resource* (any machine that does not currently have an issue notification on it will be fine).* 
     5. Put on storage that has the most space free
     6. From "Select virtual disk format" drop-down, choose Thin Provision
